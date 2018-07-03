@@ -3,7 +3,7 @@
 function custom_navigation_menus() {
 
 	$locations = array(
-		'header_nav' => __( 'Main menu', 'ellenbrage' ),
+		'header_nav' => __( 'Main menu', 'murspis' ),
 	);
 	register_nav_menus( $locations );
 
