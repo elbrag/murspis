@@ -83,13 +83,12 @@ div#menu-items {
   position: relative;
 }
 
-#menu-symb span {
+#menu-symb span.bar {
   display: block;
   position: absolute;
   height: 5px;
   width: 100%;
-  background-color: #C65228;
-  border-radius: 2px;
+  border-radius: 1px;
   left: 0;
   opacity: 1;
   -webkit-transform: rotate(0deg);
@@ -102,40 +101,70 @@ div#menu-items {
   transition: .25s ease-in-out;
 }
 
-#menu-symb span:nth-child(1) {
+#menu-symb span.segment1,
+#menu-symb span.segment2,
+#menu-symb span.segment3 {
+  border-radius: 1px;
+  background-color: #C65228;
+  display: inline-block;
+  margin: 2px;
+  float: left;
+  margin: 1px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+#menu-symb span.segment1 {
+  width: calc(20% - 2px);
+}
+#menu-symb span.segment2 {
+  width: calc(60% - 2px);
+}
+#menu-symb span.segment3 {
+  width: calc(50% - 2px);
+}
+
+#menu-symb span.bar:nth-child(1) {
   top: 0px;
 }
 
-#menu-symb span:nth-child(2) {
+#menu-symb span.bar:nth-child(2) {
   top: 7px;
 }
 
-#menu-symb span:nth-child(3) {
+#menu-symb span.bar:nth-child(3) {
   top: 14px;
 }
 
-#menu-symb.open span:nth-child(1) {
+#menu-symb.open span.bar:nth-child(1) {
   top: 14px;
   width: 0%;
   left: 50%;
 }
 
-#menu-symb.open span:nth-child(2) {
+#menu-symb.open span.bar:nth-child(2) {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
+  background-color: #C65228;
 }
 
-#menu-symb.open span:nth-child(3) {
+#menu-symb.open span.bar:nth-child(3) {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
   top: 7px;
+  background-color: #C65228;
 }
 
-#menu-symb.open span:nth-child(4) {
+#menu-symb.open span.bar:nth-child(3) span,
+#menu-symb.open span.bar:nth-child(2) span {
+  opacity: 0;
+}
+
+#menu-symb.open span.bar:nth-child(4) {
   top: 14px;
   width: 0%;
   left: 50%;

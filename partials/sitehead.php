@@ -7,10 +7,21 @@
             </div>
 
             <div id='menu-symb' title="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class='bar'>
+                    <span class='segment1'></span>
+                    <span class='segment2'></span>
+                    <span class='segment1'></span>
+                </span>
+                <span class='bar'>
+                    <span class='segment3'></span>
+                    <span class='segment3'></span>
+                </span>
+                <span class='bar'>
+                    <span class='segment1'></span>
+                    <span class='segment2'></span>
+                    <span class='segment1'></span>
+                </span>
+                <span class='bar'></span>
             </div>
         </div>
 
