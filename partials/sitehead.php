@@ -1,14 +1,20 @@
 <header>
     <nav id='main-nav'>
 
+        <div id='menu-top'>
+            <div id='logocontainer'>
+              <a href="<?php echo home_url();?>"><div id='logo'></div></a>
+            </div>
 
-        <div id='logocontainer'>
-          <a href="<?php echo home_url();?>"><div id='logo'></div></a>
+            <div id='menu-symb' title="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
 
-        <div id='menu-symb' onclick="openMenu(this)" title="Menu"></div>
-
-        <div class='menu-items'>
+        <div id='menu-items'>
             <div class='lang-items'>
               <?php $languages = pll_the_languages(array('raw'=>1));
                 foreach($languages as $lang) {
@@ -38,7 +44,7 @@
                 ?>
             </div>
 
-            <?php wp_nav_menu( array('menu' => 'Menu', 'container' => '', 'items_wrap' => '<ul class="main-ul">%3$s</ul>' )); ?>
+            <?php wp_nav_menu( array('menu' => 'Menu', 'container' => '', 'items_wrap' => '<ul id="main-ul">%3$s</ul>' )); ?>
 
         </div>
 
