@@ -1,6 +1,9 @@
           </main>
           <footer>
 
+            <h2>Kontakt</h2>
+            <h2>Sociala media</h2>
+            <h2>Länkar</h2>
 
           </footer>
 
