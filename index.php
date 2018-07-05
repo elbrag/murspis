@@ -8,7 +8,7 @@ if( have_posts() ) {
 
      ?>
 
-
+     <p>hi</p>
 
   <?php
     }

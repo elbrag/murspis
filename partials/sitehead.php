@@ -1,6 +1,5 @@
 <header>
     <nav id='main-nav'>
-
         <div id='menu-top'>
             <div id='logocontainer'>
               <a href="<?php echo home_url();?>"><div id='logo'></div></a>
