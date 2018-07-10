@@ -44,8 +44,8 @@
                         echo 'active';
                       } ?>'
                       href='<?php echo $lang[url]; ?>' id='<?php echo $lang[slug]; ?>'>
-                        <button class='lang-item'>
-                            <?php echo $lang[slug]; ?>
+                        <button class='lang-item <?php echo $lang[slug]; ?> '>
+
                         </button>
                       </a>
 

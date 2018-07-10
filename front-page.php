@@ -37,7 +37,26 @@ if( have_posts() ) {
           $sliderid = get_field('slider-id_sektion_2');
           echo do_shortcode( '[masterslider id="'.$sliderid.'' );
 
-        ?>
+
+          if (get_locale() == 'sv_SE') {
+            ?>
+              <div class='btn_container'>
+                <a href='/spisar'>
+                  <button class='btn_1'>Bläddra bland spisar</button>
+                </a>
+              </div>
+            <?php
+          } elseif (get_locale() == 'en_GB') {
+            ?>
+            <div class='btn_container'>
+              <a href='/stoves'>
+                <button class='btn_1'>Browse stoves</button>
+              </a>
+            </div>
+            <?php
+          }
+          ?>
+
      </section>
 
 

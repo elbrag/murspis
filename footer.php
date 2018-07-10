@@ -17,6 +17,9 @@
                 ?>
 
           </footer>
+          <div id='foot'>
+            © Rådig Murspis <?php echo date('Y') ?>. Design av <a target="_blank" href='http://ellenbrage.com'>Ellen Brage</a>
+          </div>
 
           <?php
           $scripts = get_template_directory_uri() . "/js/scripts.js";

@@ -12,6 +12,7 @@ Grey: #424143
 
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 ul {
@@ -40,6 +41,40 @@ h4 {
   margin: 20px 0;
 }
 
+a {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+a:visited {
+  color: #a06b58;
+}
+
+/*Buttons*/
+
+button {
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+button:focus {
+  outline: rgba(65, 67, 66, 0.45) solid 2px;
+}
+
+.btn_container {
+  width: 100%;
+  margin-top: 45px;
+}
+
+.btn_1 {
+  width: 100%;
+  background-color: #fff;
+  font-size: 1.2em;
+  color: #C65228;
+}
+
 /*--Header and navigation--*/
 
 header {
@@ -55,6 +90,7 @@ header {
   z-index: 100;
   position: fixed;
   top: 0;
+  border-radius: 0 0 2px 2px;
 }
 
 header.menu-open {
@@ -107,6 +143,17 @@ div#menu-items {
   height: 25px;
   cursor: pointer;
   position: relative;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+#menu-symb:focus {
+  outline: rgba(65, 67, 66, 0.45) solid 1px;
 }
 
 #menu-symb span.bar {
@@ -219,10 +266,29 @@ li.menu-item a {
   display: flex;
   justify-content: flex-end;
 }
+button.lang-item {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 30px;
+  width: 38px;
+  padding: 0;
+}
+.lang-item.sv {
+  background-image: url(../img/swe.png);
+  margin-right: 10px;
+}
+.lang-item.en {
+  background-image: url(../img/gb.png);
+}
 
 
 
 /*--Sections--*/
+
+section {
+  box-shadow: 0px 2px 30px rgba(0,0,0,0.5);
+}
 
 .topsection {
   padding: 150px 25px 80px 25px;
@@ -231,15 +297,63 @@ li.menu-item a {
 }
 
 section#om,
-section#article,
-footer {
-  padding: 25px;
+section#article {
+  padding: 95px 25px;
 }
-
+footer {
+  padding: 30px 25px 60px 25px;
+}
 /*--Sida: Hem--*/
 
 section#home_1 {
+  color: #fff;
+}
 
+section#home_2 {
+  position: relative;
+
+}
+
+section#home_2 .btn_container {
+  position: absolute;
+  bottom: 35px;
+  margin: 0 25px;
+}
+section#home_2 .btn_1 {
+  width: calc(100% - 50px);
+}
+
+/*Slider*/
+
+.ms-bullets {
+  top: 20px!important;
+}
+
+.ms-bullet {
+  width: 12px!important;
+  height: 12px!important;
+  background-size: 100%!important;
+  border: none!important;
+  box-shadow: 0px 2px 30px rgba(0,0,0,0.5);
+}
+
+.ms-bullet-selected {
+  background-color: #C65228!important;
+}
+
+.ms-nav-next,
+.ms-nav-prev {
+  border: none!important;
+  background-color: #424143!important;
+  width: 35px!important;
+  height: 35px!important;
+}
+
+.ms-nav-next {
+  background-position: -90px -108px!important;
+}
+.ms-nav-prev {
+  background-position: -94px -31px!important;
 }
 
 
@@ -270,17 +384,31 @@ section#home_1 {
 
 
 section#om {
-  background-image: url(../img/om_bg.jpg);
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-color: rgba(198, 82, 40, 0.65);
+}
+
+#om h2 {
+  color: #fff;
+  display: inline;
+}
+
+#om p {
+  color: #fff;
+  display: inline;
 }
 
 #om .om-ikoner {
   display: flex;
   justify-content: space-between;
+  margin-top: 45px;
 }
 #om .om-ikoner p {
 
+}
+.om_image {
+  background-image: url(../img/om_bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
@@ -288,15 +416,57 @@ section#om {
 
 footer {
   background-color: #424143;
+  color: #fff;
+  box-shadow: 0px -2px 30px rgba(0,0,0,0.3);
 }
+
+footer a {
+  color: #fff;
+}
+
 
 footer h2 {
   color: #fff;
   /*sized as an h3, kept as h2 for hierarchy*/
   font-size: 1.2em;
-  margin: 25px 0;
+  margin: 20px 0;
 }
 
+#footer-1,
+#footer-2 {
+  margin-bottom: 45px;
+}
+
+#footer-1 p {
+  display: flex;
+  align-items: center;
+}
+
+img.kontakt-ikon {
+  margin-right: 20px;
+}
+
+#footer-3 p {
+  margin: 0;
+}
+.link-desc {
+  display: flex;
+  align-items: center;
+}
+.link-desc img {
+  margin-right: 10px;
+}
+
+#foot {
+  height: 60px;
+  padding: 25px;
+  background-color: #222;
+  color: #424143;
+}
+
+#foot a:visited {
+  color: #424143;
+}
 
 /*=====================================640PX========================================*/
 
@@ -304,6 +474,31 @@ footer h2 {
 
   /*--Basics and general--*/
 
+
+
+
+  /*Buttons*/
+
+  button {
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .btn_container {
+    width: 100%;
+    margin-top: 45px;
+  }
+
+  .btn_1 {
+    width: 100%;
+    background-color: #fff;
+    font-size: 1.2em;
+  }
+.btn_1:hover {
+  background-color: transparent;
+  border: 1px solid #fff;
+}
 
 
 
