@@ -230,6 +230,12 @@ li.menu-item a {
   background-size: cover;
 }
 
+section#om,
+section#article,
+footer {
+  padding: 25px;
+}
+
 /*--Sida: Hem--*/
 
 section#home_1 {
@@ -260,12 +266,28 @@ section#home_1 {
 
 
 
+/*--Sektion: Om--*/
+
+
+section#om {
+  background-image: url(../img/om_bg.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#om .om-ikoner {
+  display: flex;
+  justify-content: space-between;
+}
+#om .om-ikoner p {
+
+}
+
 
 /*--Footer--*/
 
 footer {
   background-color: #424143;
-  padding: 25px;
 }
 
 footer h2 {

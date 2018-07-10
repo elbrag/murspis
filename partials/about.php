@@ -1,11 +1,8 @@
+
 <?php
-/*
- * Template Name: About
- */
- ?>
-
-<section id='about'>
-
-
-
-</section>
+    if (get_locale() == 'sv_SE') {
+      dynamic_sidebar('om');
+    } else {
+      dynamic_sidebar('about');
+    }
+?>

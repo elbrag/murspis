@@ -47,4 +47,6 @@ if( have_posts() ) {
   }
 ?>
 
+<?php require("partials/about.php"); ?>
+
 <?php get_footer(); ?>

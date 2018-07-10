@@ -42,4 +42,30 @@ function text_widget() {
 
 }
 add_action( 'widgets_init', 'text_widget' );
+
+
+//Widget för Om
+
+function about_widget() {
+
+	register_sidebar( array(
+		'name'          => 'Om',
+		'id'            => 'om',
+		'before_widget' => '<section id="om">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => 'About',
+		'id'            => 'about',
+		'before_widget' => '<section id="om">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
+	) );
+
+}
+add_action( 'widgets_init', 'about_widget' );
+
 ?>
