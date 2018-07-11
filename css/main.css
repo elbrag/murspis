@@ -52,20 +52,28 @@ a:visited {
 
 /*Buttons*/
 
-button {
+button,
+input[type='submit'] {
   border: none;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 2px;
 }
 
-button:focus {
+button:focus,
+input[type='submit']:focus {
   outline: rgba(65, 67, 66, 0.45) solid 2px;
 }
 
 .btn_container {
   width: 100%;
   margin-top: 45px;
+}
+
+input[type='submit'] {
+  background-color: #C65228;
+  font-size: 1.2em;
+  color: #fff;
 }
 
 .btn_1 {
@@ -168,10 +176,8 @@ div#menu-items {
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: .25s ease-in-out;
-  -moz-transition: .25s ease-in-out;
-  -o-transition: .25s ease-in-out;
-  transition: .25s ease-in-out;
+  transition: opacity 0.30s ease-in-out, transform 0.30s ease-in-out;
+	will-change: opacity, transform;
 }
 
 #menu-symb span.segment1,
@@ -291,22 +297,32 @@ section {
 }
 
 .topsection {
-  padding: 150px 25px 80px 25px;
+  padding: 100px 25px 80px 25px;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-section#om,
-section#article {
+section#om {
   padding: 95px 25px;
 }
-footer {
+
+footer,
+section#kontakt_2 {
   padding: 30px 25px 60px 25px;
 }
+
+section#valjaeldstad_1 {
+  padding-bottom: 45px;
+}
+section#valjaeldstad_2 {
+  padding-bottom: 60px;
+}
+
 /*--Sida: Hem--*/
 
 section#home_1 {
   color: #fff;
+  padding: 150px 25px 80px 25px;
 }
 
 section#home_2 {
@@ -365,20 +381,80 @@ section#home_2 .btn_1 {
 
 /*--Sida: Galleri--*/
 
+.galleripost {
+  width: 50%;
+  float: left;
+}
 
+.galleribild {
+  width: 100%;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 
 
 /*--Sida: Välja eldstad--*/
 
+section#valjaeldstad_1,
+section#valjaeldstad_2 {
+  box-shadow: none;
+}
 
-
+div.artikel {
+  padding: 60px 25px 45px 25px;
+}
+img#valjaeldstad_top,
+section#valjaeldstad_2 img {
+  width: 100%;
+}
+#to-top {
+  text-align: center;
+  margin-bottom: 60px;
+  display: block;
+  color: #424341;
+}
+#to-top:visited {
+  color: #424341;
+}
 
 
 /*--Sida: Kontakt--*/
 
+section#kontakt_1 {
 
+}
+#kontakt_1 .kontakt-ikoner {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 45px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+#tel,
+#email,
+#adress {
+  width: 30%;
+}
+.kontakt-ikoner img {
+  width: 65px;
+  display: block;
+}
 
+section#kontakt_2 {
+  box-shadow: none;
+}
+
+/*form*/
+
+.wpcf7 {
+
+}
+.wpcf7 input,
+.wpcf7 textarea {
+  width: 100%;
+}
 
 /*--Sektion: Om--*/
 
