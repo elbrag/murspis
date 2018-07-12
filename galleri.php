@@ -80,35 +80,24 @@ $query = new WP_Query( $args );
 
              <div class='galleripost-lb' id='<?php echo $bildid ?>'>
                  <div class='galleribild-lb' style='background-image:url(<?php echo $resized ?>)'></div>
+
+                 <div class="caption-container">
+                     <h2 id='<?php echo $bildid ?>'>
+                       <?php the_field('galleripost_rubrik') ?>
+                     </h2>
+                     <p class="caption" id='<?php echo $bildid ?>'>
+                         <?php the_field('galleripost_bildtext') ?>
+                     </p>
+                 </div>
              </div>
 
            <?php }
           } ?>
 
                 <!-- Next/previous controls -->
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <a class="prev">&#10094;</a>
+                <a class="next">&#10095;</a>
 
-                <!-- Caption text -->
-                <div class="caption-container">
-
-        <?php
-            if( $query->have_posts() ) {
-                while ( $query->have_posts() ) {
-                  $query->the_post();
-                  ?>
-                  
-                  <h2>
-                    <?php the_field('galleripost_rubrik') ?>
-                  </h2>
-                  <p id="caption">
-                      <?php the_field('galleripost_bildtext') ?>
-                  </p>
-
-                  <?php }
-                  } ?>
-
-                </div>
 
             </div>
         </div>

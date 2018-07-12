@@ -72,7 +72,16 @@ $(".modal-content").click(function(e) {
 
 //slide controls:
 
+$(".prev").click(function(e) {
+  changeslide(e, this, "prev");
+});
+$(".next").click(function(e) {
+  changeslide(e, this, "next");
+});
 
+function changeslide(e, element, which) {
+    
+}
 
 // Next/previous controls
 
