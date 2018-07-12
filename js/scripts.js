@@ -17,6 +17,12 @@ $(document).ready(function() {
           $('header').removeClass("menu-open");
           $('#menu-items').removeClass("menu-open");
       }
+//...and while we're at it, the same with a gallery post in the lightbox (see further down)
+      if ($(".galleripost").hasClass('enlarged')) {
+
+          $(".galleripost").removeClass('enlarged');
+      }
+
   });
 
 //Making sure we can still click stuff within the menu
@@ -24,5 +30,22 @@ $(document).ready(function() {
     event.stopPropagation();
   });
 
+
+//GALLERY LIGHTBOX
+
+$(".galleripost").on("click", function(e){
+
+  if ($(".galleripost").hasClass('enlarged')) {
+    $(".galleripost").removeClass('enlarged');
+  }
+
+  $(this).toggleClass('enlarged');
+
+});
+
+//Making sure we can still click stuff within the gallery post
+$(".galleripost").click(function(e) {
+  event.stopPropagation();
+});
 
 });

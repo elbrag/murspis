@@ -47,19 +47,42 @@ if( $query->have_posts() ) {
       $query->the_post();
 
       $galleribild = get_field('galleribild');
-      $resized = $galleribild['sizes'][ 'large_thumbnail' ];
+      $resized = $galleribild['sizes'][ 'grid_thumbnail' ];
+      $bildid = $galleribild['id'];
 
 ?>
 
-    <a href='<?php the_permalink(); ?>'>
-      <div class='galleripost'>
+      <div class='galleripost' id='<?php echo $bildid ?>'>
           <div class='galleribild' style='background-image:url(<?php echo $resized ?>)'></div>
       </div>
-    </a>
-
 
     <?php }
    } ?>
+
+   <div id="gallery-lb" class="lightbox">
+      <span class="close cursor" id='closelb'>&times;</span>
+      <div class="modal-content">
+
+   <?php
+   if( $query->have_posts() ) {
+       while ( $query->have_posts() ) {
+         $query->the_post();
+
+         $galleribild = get_field('galleribild');
+         $resized = $galleribild['sizes'][ 'grid_thumbnail' ];
+         $bildid = $galleribild['id'];
+
+   ?>
+
+         <div class='galleripost' id='<?php echo $bildid ?>'>
+             <div class='galleribild' style='background-image:url(<?php echo $resized ?>)'></div>
+         </div>
+
+       <?php }
+      } ?>
+
+        </div>
+    </div>
 
 </section>
 

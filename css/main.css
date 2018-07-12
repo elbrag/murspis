@@ -381,6 +381,15 @@ section#home_2 .btn_1 {
 
 /*--Sida: Galleri--*/
 
+
+
+
+/*Gallery lightbox*/
+
+section#galleri_2 {
+  overflow: hidden;
+}
+
 .galleripost {
   width: 50%;
   float: left;
@@ -391,6 +400,11 @@ section#home_2 .btn_1 {
   height: 200px;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.galleripost.enlarged {
+  width: calc(100% - 50px);
+  margin: 0 auto;
 }
 
 
