@@ -387,6 +387,10 @@ section#home_2 .btn_1 {
 /*Gallery lightbox*/
 
 section#galleri_2 {
+
+}
+
+.thumbnails {
   overflow: hidden;
 }
 
@@ -402,9 +406,98 @@ section#galleri_2 {
   background-size: cover;
 }
 
-.galleripost.enlarged {
-  width: calc(100% - 50px);
-  margin: 0 auto;
+.galleribild-lb {
+  width: 100%;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* The Modal (background) */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+.lightbox.open {
+  display: block;
+}
+
+.galleripost-lb.visible {
+  width: 100%;
+  display: block;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.closelb {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.closelb:hover,
+.closelb:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.galleripost-lb {
+  display: none;
 }
 
 
