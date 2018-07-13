@@ -80,23 +80,43 @@ $(".next").click(function(e) {
 });
 
 function changeslide(e, element, which) {
-    
+    e.preventDefault();
+
+    //find all gallery posts
+    var galleryposts = document.querySelectorAll('.galleripost-lb');
+    var lastpost = galleryposts[galleryposts.length - 1];
+    var firstpost = galleryposts[0];
+
+    var activepost = document.querySelector(".galleripost-lb.visible");
+    var sibling = activepost.previousElementSibling;
+
+    //if our post#1 is the one shown, we want the previous image to be the last of the bunch
+    if (firstpost.classList.contains('visible')) {
+      if (which == 'prev') {
+        sibling = lastpost;
+      } else {
+        sibling = activepost.previousElementSibling;
+      }
+    }
+    //if our last post is the one shown, we want the next image to be the first post
+    if (lastpost.classList.contains('visible')) {
+      if (which == 'next') {
+        sibling = firstpost;
+      }
+    } else {
+      if (which == 'next') {
+        sibling = activepost.nextElementSibling;
+      }
+    }
+
+    //deactivate the visible post
+    activepost.classList.remove('visible');
+
+    //whoever sibling might be, they are now visible
+    sibling.classList.add('visible');
+
+
 }
-
-// Next/previous controls
-
-// function showSlides(n) {
-//   var i;
-//   var slides = document.getElementsByClassName("galleripost-lb");
-//   var captionText = document.getElementById("caption");
-//   if (n > slides.length) {slideIndex = 1}
-//   if (n < 1) {slideIndex = slides.length}
-//   for (i = 0; i < slides.length; i++) {
-//     slides[i].style.display = "none";
-//   }
-//
-//   slides[slideIndex-1].style.display = "block";
-// }
 
 
 });

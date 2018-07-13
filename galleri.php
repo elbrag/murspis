@@ -18,6 +18,32 @@ if( have_posts() ) {
 
        <h1>Galleri</h1>
 
+       <div class='filters'>
+
+         <?php
+          $typer = get_terms(array('taxonomy' => 'typ', 'hide_empty' => true));
+          $modeller = get_terms(array('taxonomy' => 'modell', 'hide_empty' => true));
+          ?>
+          <div class='typ-select'>
+            <select multiple>
+                <?php
+                foreach ($typer as $typ) { ?>
+                  <option value='<?php echo $typ->name ?>'><?php echo $typ->name ?></option>
+                <?php } ?>
+            </select>
+          </div>
+
+          <div class='modell-select'>
+            <select multiple>
+              <?php
+              foreach ($modeller as $modell) { ?>
+                <option value='<?php echo $modell->name ?>'><?php echo $modell->name ?></option>
+              <?php } ?>
+            </select>
+          </div>
+
+       </div>
+
      </section>
 
 
