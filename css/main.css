@@ -386,6 +386,7 @@ section#home_2 .btn_1 {
 
 .multiselect {
   width: 200px;
+  margin-bottom: 25px;
 }
 
 .selectBox {
@@ -395,7 +396,10 @@ section#home_2 .btn_1 {
 .selectBox select {
   width: 100%;
   font-weight: bold;
+  padding: 10px;
+  margin-top: 5px;
 }
+
 
 .overSelect {
   position: absolute;

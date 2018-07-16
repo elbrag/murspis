@@ -30,19 +30,24 @@ if( have_posts() ) {
           <form>
             <div class="multiselect">
               <div class="selectBox">
+                <label>Typ</label>
                 <select>
                   <option>Typ</option>
                 </select>
                 <div class="overSelect"></div>
               </div>
+
               <div class="checkboxes">
+                <label for="alla-typer">
+                  <input type="checkbox" id="alla-typer" />Markera alla
+                </label>
+                <hr>
                   <?php
                   foreach ($typer as $typ) { ?>
-
                     <label for="<?php echo $typ->name ?>">
+                      <input type="checkbox" id="<?php echo $typ->name ?>" /><?php echo $typ->name ?>
+                    </label>
                     <?php } ?>
-                    <input type="checkbox" id="<?php echo $typ->name ?>" /><?php echo $typ->name ?>
-                  </label>
               </div>
             </div>
           </form>
@@ -50,25 +55,27 @@ if( have_posts() ) {
           <form>
             <div class="multiselect">
               <div class="selectBox">
+                <label>Modell</label>
                 <select>
                   <option>Modell</option>
                 </select>
                 <div class="overSelect"></div>
               </div>
+
               <div class="checkboxes">
+                <label for="alla-modeller">
+                  <input type="checkbox" id="alla-modeller" />Markera alla
+                </label>
+                <hr>
                   <?php
                   foreach ($modeller as $modell) { ?>
-
                     <label for="<?php echo $modell->name ?>">
-
-                    <input type="checkbox" id="<?php echo $modell->name ?>" /><?php echo $modell->name ?></input>
-                  </label>
-
+                      <input type="checkbox" id="<?php echo $modell->name ?>" /><?php echo $modell->name ?></input>
+                    </label>
                   <?php } ?>
               </div>
             </div>
           </form>
-
        </div>
 
      </section>
