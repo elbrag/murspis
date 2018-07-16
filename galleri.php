@@ -24,43 +24,47 @@ if( have_posts() ) {
           $typer = get_terms(array('taxonomy' => 'typ', 'hide_empty' => true));
           $modeller = get_terms(array('taxonomy' => 'modell', 'hide_empty' => true));
           ?>
-          <div class='typ-select'>
-            <select>
-                <?php
-                foreach ($typer as $typ) { ?>
-                  <span class='checkbox'></span>
-                  <option value='<?php echo $typ->name ?>'><?php echo $typ->name ?>
-                  </option>
-                <?php } ?>
-            </select>
-          </div>
-
-          <div class='modell-select'>
-            <select multiple>
-              <?php
-              foreach ($modeller as $modell) { ?>
-                <option value='<?php echo $modell->name ?>'><?php echo $modell->name ?></option>
-              <?php } ?>
-            </select>
-          </div>
 
           <!-- https://stackoverflow.com/questions/17714705/how-to-use-checkbox-inside-select-option -->
 
           <form>
             <div class="multiselect">
-              <div class="selectBox" id="show-checkboxes">
+              <div class="selectBox">
                 <select>
-                  <option>Select an option</option>
+                  <option>Typ</option>
                 </select>
                 <div class="overSelect"></div>
               </div>
-              <div id="checkboxes">
-                <label for="one">
-                  <input type="checkbox" id="one" />First checkbox</label>
-                <label for="two">
-                  <input type="checkbox" id="two" />Second checkbox</label>
-                <label for="three">
-                  <input type="checkbox" id="three" />Third checkbox</label>
+              <div class="checkboxes">
+                  <?php
+                  foreach ($typer as $typ) { ?>
+
+                    <label for="<?php echo $typ->name ?>">
+                    <?php } ?>
+                    <input type="checkbox" id="<?php echo $typ->name ?>" /><?php echo $typ->name ?>
+                  </label>
+              </div>
+            </div>
+          </form>
+
+          <form>
+            <div class="multiselect">
+              <div class="selectBox">
+                <select>
+                  <option>Modell</option>
+                </select>
+                <div class="overSelect"></div>
+              </div>
+              <div class="checkboxes">
+                  <?php
+                  foreach ($modeller as $modell) { ?>
+
+                    <label for="<?php echo $modell->name ?>">
+
+                    <input type="checkbox" id="<?php echo $modell->name ?>" /><?php echo $modell->name ?></input>
+                  </label>
+
+                  <?php } ?>
               </div>
             </div>
           </form>

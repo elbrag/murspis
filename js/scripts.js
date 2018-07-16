@@ -122,15 +122,15 @@ function changeslide(e, element, which) {
 /////////////////////////////////////////GALLERY FILTERS////////////
 
 
-$("#show-checkboxes").click(function(e) {
+$(".multiselect").click(function(e) {
 
-  $('#checkboxes').toggleClass('expanded');
+  $(this).toggleClass('expanded');
 
 });
 
 $("html").click(function(e){
-    if ($("#checkboxes").hasClass('expanded')) {
-        $("#checkboxes").removeClass('expanded')
+    if ($(".multiselect").hasClass('expanded')) {
+        $(".multiselect").removeClass('expanded');
     }
 });
 $(".multiselect").click(function(e) {
