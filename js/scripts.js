@@ -121,21 +121,31 @@ function changeslide(e, element, which) {
 
 /////////////////////////////////////////GALLERY FILTERS////////////
 
-
+/*just getting the dropdowns to display correctly*/
 $(".multiselect").click(function(e) {
 
   $(this).toggleClass('expanded');
-
+/*enabling clicks within the dropdown*/
+  event.stopPropagation();
 });
 
+/*clicking outside the dropdown closes it*/
 $("html").click(function(e){
     if ($(".multiselect").hasClass('expanded')) {
         $(".multiselect").removeClass('expanded');
     }
 });
-$(".multiselect").click(function(e) {
-  event.stopPropagation();
-});
 
+
+/*checking values in the checkboxes*/
+$(":checkbox").on("change", function(e){
+
+        var id = $(this).val();
+        if($(this).is(":checked")) {
+            console.log(id);
+        } else {
+            console.log('no checked');
+        }
+});
 
 });

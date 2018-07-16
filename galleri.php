@@ -27,7 +27,7 @@ if( have_posts() ) {
 
           <!-- https://stackoverflow.com/questions/17714705/how-to-use-checkbox-inside-select-option -->
 
-          <form>
+          <form id='form-typer' method='POST' action=''>
             <div class="multiselect">
               <div class="selectBox">
                 <label>Typ</label>
@@ -38,21 +38,20 @@ if( have_posts() ) {
               </div>
 
               <div class="checkboxes">
-                <label for="alla-typer">
-                  <input type="checkbox" id="alla-typer" />Markera alla
+                <label class='markera-alla' for="alla-typer">
+                  <input type="checkbox" id="alla-typer" value='Markera alla typer' />Markera alla
                 </label>
-                <hr>
                   <?php
                   foreach ($typer as $typ) { ?>
                     <label for="<?php echo $typ->name ?>">
-                      <input type="checkbox" id="<?php echo $typ->name ?>" /><?php echo $typ->name ?>
+                      <input type="checkbox" id="<?php echo $typ->name ?>" value='<?php echo $typ->name ?>' /><?php echo $typ->name ?>
                     </label>
                     <?php } ?>
               </div>
             </div>
           </form>
 
-          <form>
+          <form id='form-modeller' method='POST' action=''>
             <div class="multiselect">
               <div class="selectBox">
                 <label>Modell</label>
@@ -63,19 +62,29 @@ if( have_posts() ) {
               </div>
 
               <div class="checkboxes">
-                <label for="alla-modeller">
-                  <input type="checkbox" id="alla-modeller" />Markera alla
+                <label class='markera-alla' for="alla-modeller">
+                  <input type="checkbox" id="alla-modeller" value='Markera alla modeller' />Markera alla
                 </label>
-                <hr>
                   <?php
                   foreach ($modeller as $modell) { ?>
                     <label for="<?php echo $modell->name ?>">
-                      <input type="checkbox" id="<?php echo $modell->name ?>" /><?php echo $modell->name ?></input>
+                      <input type="checkbox" id="<?php echo $modell->name ?>" value='<?php echo $modell->name ?>'/><?php echo $modell->name ?></input>
                     </label>
                   <?php } ?>
               </div>
             </div>
           </form>
+
+          <?php
+
+
+
+          if (isset($_POST['checkbox']) && !empty($_POST['checkbox'])) {
+
+          }
+
+          ?>
+
        </div>
 
      </section>

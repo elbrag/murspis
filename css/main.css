@@ -409,6 +409,10 @@ section#home_2 .btn_1 {
   bottom: 0;
 }
 
+.markera-alla {
+  border-bottom: 1px solid #eee;
+}
+
 .checkboxes {
   display: none;
   border: 1px #dadada solid;
