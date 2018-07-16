@@ -146,6 +146,20 @@ $(":checkbox").on("change", function(e){
         } else {
             console.log('no checked');
         }
+
+
+        $.ajax({
+                type: "POST",
+                dataType: "xml",
+                url: "path/to/file.php",
+                data: "function=loadContent&id=" + id,
+                success: function(xml) {
+                    // success function is called when data came back
+                    // for example: get your content and display it on your site
+                }
+                
+              });
+
 });
 
 });
