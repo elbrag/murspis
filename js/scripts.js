@@ -31,7 +31,7 @@ $(document).ready(function() {
   });
 
 
-//GALLERY LIGHTBOX
+//////////////////////////GALLERY LIGHTBOX////////////////////////
 
 $(".galleripost").on("click", function(e){
 
@@ -117,6 +117,25 @@ function changeslide(e, element, which) {
 
 
 }
+
+
+/////////////////////////////////////////GALLERY FILTERS////////////
+
+
+$("#show-checkboxes").click(function(e) {
+
+  $('#checkboxes').toggleClass('expanded');
+
+});
+
+$("html").click(function(e){
+    if ($("#checkboxes").hasClass('expanded')) {
+        $("#checkboxes").removeClass('expanded')
+    }
+});
+$(".multiselect").click(function(e) {
+  event.stopPropagation();
+});
 
 
 });

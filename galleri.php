@@ -25,10 +25,12 @@ if( have_posts() ) {
           $modeller = get_terms(array('taxonomy' => 'modell', 'hide_empty' => true));
           ?>
           <div class='typ-select'>
-            <select multiple>
+            <select>
                 <?php
                 foreach ($typer as $typ) { ?>
-                  <option value='<?php echo $typ->name ?>'><?php echo $typ->name ?></option>
+                  <span class='checkbox'></span>
+                  <option value='<?php echo $typ->name ?>'><?php echo $typ->name ?>
+                  </option>
                 <?php } ?>
             </select>
           </div>
@@ -41,6 +43,27 @@ if( have_posts() ) {
               <?php } ?>
             </select>
           </div>
+
+          <!-- https://stackoverflow.com/questions/17714705/how-to-use-checkbox-inside-select-option -->
+
+          <form>
+            <div class="multiselect">
+              <div class="selectBox" id="show-checkboxes">
+                <select>
+                  <option>Select an option</option>
+                </select>
+                <div class="overSelect"></div>
+              </div>
+              <div id="checkboxes">
+                <label for="one">
+                  <input type="checkbox" id="one" />First checkbox</label>
+                <label for="two">
+                  <input type="checkbox" id="two" />Second checkbox</label>
+                <label for="three">
+                  <input type="checkbox" id="three" />Third checkbox</label>
+              </div>
+            </div>
+          </form>
 
        </div>
 
