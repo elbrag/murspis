@@ -33,13 +33,6 @@ if( $query->have_posts() ) {
        $modeller = get_terms(array('taxonomy' => 'modell', 'hide_empty' => true));
        ?>
 
-      <?php
-
-      if (isset($_POST['checkbox'])) {
-        echo "typer filter";
-      }
-
-       ?>
 
 <?php
     }

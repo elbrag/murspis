@@ -139,6 +139,7 @@ $("html").click(function(e){
 
   /*checking values in the checkboxes*/
   $(":checkbox").on("change", function(){
+
     jQuery.ajax({
     type:"POST",
     url: "//murspis.se/wp-admin/admin-ajax.php",
@@ -149,7 +150,9 @@ $("html").click(function(e){
     success:function(data){
     jQuery(".thumbnails").html(data);
     }
-    });
+
   });
+
+});
 
 });
