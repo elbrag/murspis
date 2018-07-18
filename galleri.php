@@ -39,7 +39,7 @@ if( have_posts() ) {
 
               <div class="checkboxes">
                 <label class='markera-alla' for="alla-typer">
-                  <input type="checkbox" id="alla-typer" value='Markera alla typer' />Markera alla
+                  <input type="checkbox" name='checkbox' id="alla-typer" value='Markera alla typer' />Markera alla
                 </label>
                   <?php
                   foreach ($typer as $typ) { ?>

@@ -137,29 +137,19 @@ $("html").click(function(e){
 });
 
 
-/*checking values in the checkboxes*/
-$(":checkbox").on("change", function(e){
-
-        var id = $(this).val();
-        if($(this).is(":checked")) {
-            console.log(id);
-        } else {
-            console.log('no checked');
-        }
-
-
-        $.ajax({
-                type: "POST",
-                dataType: "xml",
-                url: "path/to/file.php",
-                data: "function=loadContent&id=" + id,
-                success: function(xml) {
-                    // success function is called when data came back
-                    // for example: get your content and display it on your site
-                }
-                
-              });
-
-});
+  /*checking values in the checkboxes*/
+  $(":checkbox").on("change", function(){
+    jQuery.ajax({
+    type:"POST",
+    url: "//murspis.se/wp-admin/admin-ajax.php",
+    data : {
+        action : 'my_action',
+        id : 1
+    },
+    success:function(data){
+    jQuery(".thumbnails").html(data);
+    }
+    });
+  });
 
 });
