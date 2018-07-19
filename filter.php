@@ -15,8 +15,15 @@ if( $query->have_posts() ) {
       $query->the_post();
 
 
+       $typer = get_terms(array('taxonomy' => 'typ', 'hide_empty' => true));
+       $modeller = get_terms(array('taxonomy' => 'modell', 'hide_empty' => true));
 
-      echo "new images";
+       foreach ($typer as $typ) {
+
+       }
+       foreach ($modeller as $modell) {
+
+       }
 
       $galleribild = get_field('galleribild');
       $resized = $galleribild['sizes'][ 'grid_thumbnail' ];
@@ -24,7 +31,7 @@ if( $query->have_posts() ) {
 
       ?>
 
-      <div class='galleripost' id='<?php echo $bildid ?>'>
+      <div class='galleripost <?php echo $modell->name . " " ?><?php echo $typ->name ?>' id='<?php echo $bildid ?>'>
           <div class='galleribild' style='background-image:url(<?php echo $resized ?>)'></div>
       </div>
 

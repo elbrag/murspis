@@ -136,23 +136,53 @@ $("html").click(function(e){
     }
 });
 
-
   /*checking values in the checkboxes*/
-  $(":checkbox").on("change", function(){
-
-    jQuery.ajax({
-    type:"POST",
-    url: "//murspis.se/wp-admin/admin-ajax.php",
-    data : {
-        action : 'my_action',
-        id : 1
-    },
-    success:function(data){
-    jQuery(".thumbnails").html(data);
-    }
-
-  });
-
-});
+//   $(":checkbox").on("change", function(){
+//
+//       var id = $(this).val();
+//
+//       jQuery.ajax({
+//       type:"POST",
+//       url: "//murspis.se/wp-admin/admin-ajax.php",
+//       data : {
+//           "function=loadContent&id=" : id,
+//           action : 'my_action',
+//           id : 1
+//       },
+//       success:function(data){
+//           jQuery(".thumbnails").html(data);
+//
+//           console.log(id);
+//
+//             var galleriposter = document.querySelectorAll('.galleripost');
+//
+//             for (var i=0; i<galleriposter.length; i++) {
+//
+//
+//               if (galleriposter[i].classList.contains(id)) {
+//
+//                 console.log(galleriposter[i]);
+//
+//                 galleriposter[i].style.display = 'block';
+//               } else {
+//                 galleriposter[i].style.display = 'none';
+//               }
+//             }
+//
+//
+//
+//
+//             // console.log(clicked);
+//             // if (clicked.classList.contains('showme')) {
+//             //   clicked.classList.remove('showme');
+//             // } else {
+//             //   clicked.classList.add('showme');
+//             // }
+//
+//           }
+//
+//   });
+//
+// });
 
 });

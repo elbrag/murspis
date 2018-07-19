@@ -42,14 +42,14 @@ function special_nav_class ($classes, $item) {
 
 add_filter('show_admin_bar', '__return_false');
 
-add_action('wp_ajax_my_action','data_fetch');
-add_action('wp_ajax_nopriv_my_action','data_fetch');
-
-function data_fetch(){
-
-  require('filter.php');
-
-    }
+// add_action('wp_ajax_my_action','data_fetch');
+// add_action('wp_ajax_nopriv_my_action','data_fetch');
+//
+// function data_fetch(){
+//
+//   require('filter.php');
+//
+//     }
 
 
 ?>

@@ -21,12 +21,8 @@ if( have_posts() ) {
        <div class='filters'>
 
          <?php
-         echo do_shortcode( '[searchandfilter taxonomies="typ,modell"]' );
-         ?>
+          $kategorier = get_terms(array('taxonomy' => 'kategori', 'hide_empty' => true));
 
-         <?php
-          $typer = get_terms(array('taxonomy' => 'typ', 'hide_empty' => true));
-          $modeller = get_terms(array('taxonomy' => 'modell', 'hide_empty' => true));
           ?>
 
           <!-- https://stackoverflow.com/questions/17714705/how-to-use-checkbox-inside-select-option -->
@@ -34,68 +30,38 @@ if( have_posts() ) {
           <form id='categories' method='POST' action=''>
             <div class="multiselect">
               <div class="selectBox">
-                <label>Typ</label>
+                <label>Välj spis</label>
                 <select>
-                  <option>Typ</option>
+                  <option>Spis</option>
                 </select>
                 <div class="overSelect"></div>
               </div>
 
               <div class="checkboxes">
-                <label class='markera-alla' for="alla-typer">
-                  <input type="checkbox" id="alla-typer" value='Markera alla typer' />Markera alla
-                </label>
+
                   <?php
-                  foreach ($typer as $typ) { ?>
-                    <label for="<?php echo $typ->name ?>">
-                      <input type="checkbox" name='checkbox[]' id="<?php echo $typ->name ?>" value='<?php echo $typ->name ?>' /><?php echo $typ->name ?>
+                  foreach ($kategorier as $kat) { ?>
+                    <label for="<?php echo $kat->name ?>">
+                      <input type="checkbox" name='checkbox[]'
+                      <?php
+                      if ((in_array($kat->name, $_POST['checkbox']))) echo "checked='checked'";
+                      ?> id="<?php echo $kat->name ?>" value='<?php echo $kat->name ?>' /><?php echo $kat->name ?>
                     </label>
                     <?php } ?>
               </div>
             </div>
 
-            <div class="multiselect">
-              <div class="selectBox">
-                <label>Modell</label>
-                <select>
-                  <option>Modell</option>
-                </select>
-                <div class="overSelect"></div>
-              </div>
+            <input type='submit' value='Filtrera'>
 
-              <div class="checkboxes">
-                <label class='markera-alla' for="alla-modeller">
-                  <input type="checkbox" id="alla-modeller" value='Markera alla modeller' />Markera alla
-                </label>
-                  <?php
-                  foreach ($modeller as $modell) { ?>
-                    <label for="<?php echo $modell->name ?>">
-                      <input type="checkbox" name='checkbox[]' id="<?php echo $modell->name ?>" value='<?php echo $modell->name ?>'/><?php echo $modell->name ?></input>
-                    </label>
-                  <?php } ?>
-              </div>
-            </div>
-
-            <input type='submit'>
           </form>
-
-          <?php
-
-          if (isset($_POST['checkbox']) && !empty($_POST['checkbox'])) {
-            foreach ($_POST['checkbox'] as $check) {
-              echo $check;
-            }
-          }
-
-          ?>
 
        </div>
 
      </section>
 
-
-
   <?php
+
+
     }
   }
 ?>
@@ -120,49 +86,39 @@ $query = new WP_Query( $args );
             while ( $query->have_posts() ) {
               $query->the_post();
 
-              foreach (get_the_terms(get_the_ID(), 'modell') as $modeller) {
-                  $spismodell = $modeller->name;
-              }
-              foreach (get_the_terms(get_the_ID(), 'typ') as $typer) {
-                  $spistyp = $typer->name;
-              }
+              foreach (get_the_terms(get_the_ID(), 'kategori') as $category) {
+                  $cat = $category->name;
+                }
 
 
+                $galleribild = get_field('galleribild');
+                $resized = $galleribild['sizes'][ 'grid_thumbnail' ];
+                $bildid = $galleribild['id'];
 
-              if (isset($_POST['checkbox']) && !empty($_POST['checkbox'])) {
-                foreach ($_POST['checkbox'] as $check) {
 
+                  if (isset($_POST['checkbox']) && !empty($_POST['checkbox'])) {
+                    foreach ($_POST['checkbox'] as $check) {
+                      if ($check == $cat) {
 
-
-                  if (($check == $spistyp) || ($check == $spismodell)) {
-
-                    echo $check;
-
-                    $galleribild = get_field('galleribild');
-                    $resized = $galleribild['sizes'][ 'grid_thumbnail' ];
-                    $bildid = $galleribild['id'];
-                    ?>
-                    <div class='galleripost' id='<?php echo $bildid ?>'>
-                        <div class='galleribild' style='background-image:url(<?php echo $resized ?>)'></div>
-                    </div>
+                          ?>
+                          <div class='galleripost' id='<?php echo $bildid ?>'>
+                              <div class='galleribild' style='background-image:url(<?php echo $resized ?>)'></div>
+                          </div>
 
                     <?php
                   }
                 }
               } elseif (!isset($_POST['checkbox'])) {
-                ?>
-                <div class='galleripost' id='<?php echo $bildid ?>'>
-                    <div class='galleribild' style='background-image:url(<?php echo $resized ?>)'></div>
-                </div>
 
-                <?php
+                  ?>
+                  <div class='galleripost' id='<?php echo $bildid ?>'>
+                      <div class='galleribild' style='background-image:url(<?php echo $resized ?>)'></div>
+                  </div>
+                  <?php
               }
 
-              ?>
 
-
-
-            <?php }
+             }
            } ?>
         </div>
 
@@ -177,9 +133,17 @@ $query = new WP_Query( $args );
            while ( $query->have_posts() ) {
              $query->the_post();
 
-             $galleribild = get_field('galleribild');
-             $resized = $galleribild['sizes'][ 'grid_thumbnail' ];
-             $bildid = $galleribild['id'];
+             foreach (get_the_terms(get_the_ID(), 'kategori') as $category) {
+                 $cat = $category->name;
+               }
+
+               $galleribild = get_field('galleribild');
+               $resized = $galleribild['sizes'][ 'grid_thumbnail' ];
+               $bildid = $galleribild['id'];
+
+             if (isset($_POST['checkbox']) && !empty($_POST['checkbox'])) {
+               foreach ($_POST['checkbox'] as $check) {
+                 if ($check == $cat) {
 
        ?>
 
@@ -196,7 +160,27 @@ $query = new WP_Query( $args );
                  </div>
              </div>
 
-           <?php }
+             <?php
+           }
+         }
+       } elseif (!isset($_POST['checkbox'])) {
+         ?>
+
+         <div class='galleripost-lb' id='<?php echo $bildid ?>'>
+             <div class='galleribild-lb' style='background-image:url(<?php echo $resized ?>)'></div>
+
+             <div class="caption-container">
+                 <h2 id='<?php echo $bildid ?>'>
+                   <?php the_field('galleripost_rubrik') ?>
+                 </h2>
+                 <p class="caption" id='<?php echo $bildid ?>'>
+                     <?php the_field('galleripost_bildtext') ?>
+                 </p>
+             </div>
+         </div>
+
+       <?php }
+            }
           } ?>
 
                 <!-- Next/previous controls -->
