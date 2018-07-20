@@ -127,11 +127,21 @@ $(".kat-more").click(function(e) {
   $("#alla-kat").removeClass('active');
 
 //our parent (the button opens)
-  $(this).closest(".kat-parent").toggleClass('open');
+  var parent = $(this).closest(".kat-parent");
+
+  var title = $(this).siblings(".kat-title").html();
+
+  if (parent.hasClass('open')) {
+    parent.removeClass('open');
+    filter(e, title);
+  } else {
+    parent.addClass('open');
+  }
+
 /*...and is also activated (these two are different: open means options are open, active means the parent filter is active)*/
-  $(this).closest(".kat-parent").addClass('active');
+  parent.addClass('active');
 //when we open the dropdown, all children are checked until we uncheck them
-  $(this).closest(".kat-parent").find(".kat-child").toggleClass('check');
+  parent.find(".kat-child").toggleClass('check');
 });
 
 //if we click just the title (everything on the button except for the dropdown symbol)
@@ -139,7 +149,17 @@ $(".kat-title").click(function(e) {
   //first of all, "show all" can't be active if we've filtered
   $("#alla-kat").removeClass('active');
   //the clicked parent category will be active
-  $(this).closest(".kat-parent").toggleClass('active');
+
+  var parent = $(this).closest(".kat-parent");
+
+  if (parent.hasClass('active') && !parent.hasClass('open')) {
+    parent.removeClass('active');
+  } else {
+    parent.addClass('active');
+    filter(e, this.innerHTML);
+  }
+
+
 
 });
 
@@ -168,11 +188,9 @@ $(".kat-child").click(function(e) {
 
 });
 
-/*clicking outside the dropdown closes it*/
-$("html").click(function(e){
-    if ($(".multiselect").hasClass('expanded')) {
-        $(".multiselect").removeClass('expanded');
-    }
-});
+function filter(e, target){
+  console.log(target);
+  $('.galleripost').not('[alt="' + $('Murspisar').val() + '"]').hide();
+}
 
 });

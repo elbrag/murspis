@@ -10,9 +10,7 @@ get_header(); ?>
 if( have_posts() ) {
    while ( have_posts() ) {
      the_post();
-
      ?>
-
 
      <section id='galleri_1' class='topsection'>
 
@@ -28,16 +26,24 @@ if( have_posts() ) {
 
          <?php
          $parents = get_terms(array('taxonomy' => 'kategori', 'hide_empty' => true, 'parent' => 0));
-         foreach ($parents as $parent) { ?>
+
+
+         foreach ($parents as $parent) {
+
+           $children = get_term_children( $parent->term_id, 'kategori' );
+           ?>
 
                <span class='kat-parent'>
                  <button class='kat-heading'>
                  <span class='kat-title'><?php echo $parent->name ?></span>
-                 <span class='kat-more'>&or;</span>
+                 <?php
+                 if ( !empty( $children )) {
+                   ?> <span class='kat-more'>&or;</span> <?php
+                 } ?>
+
                 </button>
 
-                 <?php $children = get_term_children( $parent->term_id, 'kategori' );
-
+                 <?php
                  foreach ($children as $child) {
 
                         $term = get_term_by( 'id', $child, 'kategori' );
@@ -49,18 +55,11 @@ if( have_posts() ) {
                   <?php
                  } ?>
                </span>
-
           <?php }
-
          ?>
-
        </div>
-
      </section>
-
   <?php
-
-
     }
   }
 ?>
@@ -89,34 +88,14 @@ $query = new WP_Query( $args );
                   $cat = $category->name;
                 }
 
-
                 $galleribild = get_field('galleribild');
                 $resized = $galleribild['sizes'][ 'grid_thumbnail' ];
                 $bildid = $galleribild['id'];
-
-
-                  if (isset($_POST['checkbox']) && !empty($_POST['checkbox'])) {
-                    foreach ($_POST['checkbox'] as $check) {
-                      if ($check == $cat) {
-
-                          ?>
-                          <div class='galleripost' id='<?php echo $bildid ?>'>
-                              <div class='galleribild' style='background-image:url(<?php echo $resized ?>)'></div>
-                          </div>
-
-                    <?php
-                  }
-                }
-              } elseif (!isset($_POST['checkbox'])) {
-
                   ?>
-                  <div class='galleripost' id='<?php echo $bildid ?>'>
-                      <div class='galleribild' style='background-image:url(<?php echo $resized ?>)'></div>
-                  </div>
+
+                  <img class='galleripost' src='<?php echo $resized ?>' alt='<?php echo $cat ?>' id='<?php echo $bildid ?>'>
+
                   <?php
-              }
-
-
              }
            } ?>
         </div>
@@ -140,29 +119,6 @@ $query = new WP_Query( $args );
                $resized = $galleribild['sizes'][ 'grid_thumbnail' ];
                $bildid = $galleribild['id'];
 
-             if (isset($_POST['checkbox']) && !empty($_POST['checkbox'])) {
-               foreach ($_POST['checkbox'] as $check) {
-                 if ($check == $cat) {
-
-       ?>
-
-             <div class='galleripost-lb' id='<?php echo $bildid ?>'>
-                 <div class='galleribild-lb' style='background-image:url(<?php echo $resized ?>)'></div>
-
-                 <div class="caption-container">
-                     <h2 id='<?php echo $bildid ?>'>
-                       <?php the_field('galleripost_rubrik') ?>
-                     </h2>
-                     <p class="caption" id='<?php echo $bildid ?>'>
-                         <?php the_field('galleripost_bildtext') ?>
-                     </p>
-                 </div>
-             </div>
-
-             <?php
-           }
-         }
-       } elseif (!isset($_POST['checkbox'])) {
          ?>
 
          <div class='galleripost-lb' id='<?php echo $bildid ?>'>
@@ -178,7 +134,7 @@ $query = new WP_Query( $args );
              </div>
          </div>
 
-       <?php }
+       <?php
             }
           } ?>
 
