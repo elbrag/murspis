@@ -384,47 +384,92 @@ section#home_2 .btn_1 {
 
 /*Filters*/
 
-.multiselect {
-  width: 200px;
-  margin-bottom: 25px;
+.filters {
+  overflow: hidden;
+  margin: 0 -10px;
+  width: calc( 100% + 20px );
 }
 
-.selectBox {
-  position: relative;
+.filters button {
+  height: 45px;
 }
 
-.selectBox select {
+.kat-title {
+  font-size: 18px;
+  width: calc( 75% - 10px );
+  line-height: 20px;
+  display: inline-block;
+}
+
+.kat-more {
+  font-size: 1.2em;
+  margin-left: 10px;
+  float: right;
+  width: 25%;
+  text-align: center;
+}
+
+span.kat-parent {
+  width: calc( 50% - 10px );
+  float: left;
+  margin: 5px;
+  max-height: 45px;
+  will-change: max-height;
+  transition: max-height 0.2s ease-in-out;
+  transform: translateZ(0);
+  background-color: #eee;
+}
+
+span.kat-parent.open {
+  max-height: 200px;
+}
+
+#alla-kat.open {
+  max-height: 45px;
+}
+
+.kat-heading {
+  transition: background-color 0.2s ease-in-out;
+	will-change: background-color;
+	transform: translateZ(0);
+}
+
+span.kat-parent.active .kat-heading {
+  background-color: #C65228;
+}
+
+.kat-child {
+  max-height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out, max-height 0.2s ease-in-out, background-color 0.2s ease-in-out;
+	will-change: opacity, max-height, background-color;
+	transform: translateZ(0);
+}
+
+span.kat-parent.open .kat-child {
+  max-height: 100px;
+  visibility: visible;
+  opacity: 1;
+  background-color: #eee;
+}
+
+span.kat-parent.open .kat-child.check {
+  background-color: #C65228;
+}
+
+.kat-heading,
+.kat-child {
   width: 100%;
-  font-weight: bold;
   padding: 10px;
-  margin-top: 5px;
+}
+
+button.kat-heading:focus,
+button.kat-child:focus {
+  outline: none;
 }
 
 
-.overSelect {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.markera-alla {
-  border-bottom: 1px solid #eee;
-}
-
-.checkboxes {
-  display: none;
-  border: 1px #dadada solid;
-}
-
-.multiselect.expanded .checkboxes {
-  display: block;
-}
-
-.checkboxes label {
-  display: block;
-}
 
 /*Gallery lightbox*/
 

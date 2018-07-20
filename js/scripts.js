@@ -121,12 +121,51 @@ function changeslide(e, element, which) {
 
 /////////////////////////////////////////GALLERY FILTERS////////////
 
-/*just getting the dropdowns to display correctly*/
-$(".multiselect").click(function(e) {
+//kat-more is the dropdown symbol on the button
+$(".kat-more").click(function(e) {
+  //first of all, "show all" can't be active if we've filtered
+  $("#alla-kat").removeClass('active');
 
-  $(this).toggleClass('expanded');
-/*enabling clicks within the dropdown*/
+//our parent (the button opens)
+  $(this).closest(".kat-parent").toggleClass('open');
+/*...and is also activated (these two are different: open means options are open, active means the parent filter is active)*/
+  $(this).closest(".kat-parent").addClass('active');
+//when we open the dropdown, all children are checked until we uncheck them
+  $(this).closest(".kat-parent").find(".kat-child").toggleClass('check');
+});
+
+//if we click just the title (everything on the button except for the dropdown symbol)
+$(".kat-title").click(function(e) {
+  //first of all, "show all" can't be active if we've filtered
+  $("#alla-kat").removeClass('active');
+  //the clicked parent category will be active
+  $(this).closest(".kat-parent").toggleClass('active');
+
+});
+
+//if we click "show all again..."
+$("#alla-kat").click(function(e) {
+  //other categories can't be opened or active or checked
+  $(".kat-parent").removeClass('active');
+  $(".kat-parent").removeClass('open');
+  $(".kat-child").removeClass('check');
+  $(this).toggleClass('active');
+
+});
+
+//if we click a sub-category (child)...
+$(".kat-child").click(function(e) {
+  //to be able to click inside these:
   event.stopPropagation();
+  //stop button default behaviour:
+  e.preventDefault();
+
+//you have to have at least one checked, so we don't allow unchecking the last one
+  var siblingsnr = $(this).siblings(".kat-child.check").length + 1;
+  if (siblingsnr > 1) {
+    $(this).toggleClass('check');
+  }
+
 });
 
 /*clicking outside the dropdown closes it*/
@@ -135,54 +174,5 @@ $("html").click(function(e){
         $(".multiselect").removeClass('expanded');
     }
 });
-
-  /*checking values in the checkboxes*/
-//   $(":checkbox").on("change", function(){
-//
-//       var id = $(this).val();
-//
-//       jQuery.ajax({
-//       type:"POST",
-//       url: "//murspis.se/wp-admin/admin-ajax.php",
-//       data : {
-//           "function=loadContent&id=" : id,
-//           action : 'my_action',
-//           id : 1
-//       },
-//       success:function(data){
-//           jQuery(".thumbnails").html(data);
-//
-//           console.log(id);
-//
-//             var galleriposter = document.querySelectorAll('.galleripost');
-//
-//             for (var i=0; i<galleriposter.length; i++) {
-//
-//
-//               if (galleriposter[i].classList.contains(id)) {
-//
-//                 console.log(galleriposter[i]);
-//
-//                 galleriposter[i].style.display = 'block';
-//               } else {
-//                 galleriposter[i].style.display = 'none';
-//               }
-//             }
-//
-//
-//
-//
-//             // console.log(clicked);
-//             // if (clicked.classList.contains('showme')) {
-//             //   clicked.classList.remove('showme');
-//             // } else {
-//             //   clicked.classList.add('showme');
-//             // }
-//
-//           }
-//
-//   });
-//
-// });
 
 });

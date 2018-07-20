@@ -20,40 +20,39 @@ if( have_posts() ) {
 
        <div class='filters'>
 
+         <span class='kat-parent active' id='alla-kat'>
+           <button class='kat-heading'>
+             <span class='kat-title'>Visa alla</span>
+           </button>
+         </span>
+
          <?php
-          $kategorier = get_terms(array('taxonomy' => 'kategori', 'hide_empty' => true));
+         $parents = get_terms(array('taxonomy' => 'kategori', 'hide_empty' => true, 'parent' => 0));
+         foreach ($parents as $parent) { ?>
 
-          ?>
+               <span class='kat-parent'>
+                 <button class='kat-heading'>
+                 <span class='kat-title'><?php echo $parent->name ?></span>
+                 <span class='kat-more'>&or;</span>
+                </button>
 
-          <!-- https://stackoverflow.com/questions/17714705/how-to-use-checkbox-inside-select-option -->
+                 <?php $children = get_term_children( $parent->term_id, 'kategori' );
 
-          <form id='categories' method='POST' action=''>
-            <div class="multiselect">
-              <div class="selectBox">
-                <label>Välj spis</label>
-                <select>
-                  <option>Spis</option>
-                </select>
-                <div class="overSelect"></div>
-              </div>
+                 foreach ($children as $child) {
 
-              <div class="checkboxes">
+                        $term = get_term_by( 'id', $child, 'kategori' );
 
+                        ?>
+                       <button class='kat-child'>
+                         <?php echo $term->name ?>
+                       </button>
                   <?php
-                  foreach ($kategorier as $kat) { ?>
-                    <label for="<?php echo $kat->name ?>">
-                      <input type="checkbox" name='checkbox[]'
-                      <?php
-                      if ((in_array($kat->name, $_POST['checkbox']))) echo "checked='checked'";
-                      ?> id="<?php echo $kat->name ?>" value='<?php echo $kat->name ?>' /><?php echo $kat->name ?>
-                    </label>
-                    <?php } ?>
-              </div>
-            </div>
+                 } ?>
+               </span>
 
-            <input type='submit' value='Filtrera'>
+          <?php }
 
-          </form>
+         ?>
 
        </div>
 
