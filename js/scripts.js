@@ -190,7 +190,7 @@ $(".kat-child").click(function(e) {
 
 function filter(e, target){
   console.log(target);
-  $('.galleripost').not('[alt="' + $('Murspisar').val() + '"]').hide();
+  $('.galleripost').not('[alt="' + target + '"]').hide();
 }
 
 });

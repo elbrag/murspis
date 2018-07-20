@@ -44,6 +44,10 @@ if( have_posts() ) {
                 </button>
 
                  <?php
+
+
+
+
                  foreach ($children as $child) {
 
                         $term = get_term_by( 'id', $child, 'kategori' );
@@ -84,8 +88,16 @@ $query = new WP_Query( $args );
             while ( $query->have_posts() ) {
               $query->the_post();
 
+              $parents = get_terms(array('id' => get_the_ID(), 'taxonomy' => 'kategori', 'hide_empty' => true, 'parent' => 0));
+              foreach ($parents as $parent) {
+                $par = $parent->name;
+              }
+
               foreach (get_the_terms(get_the_ID(), 'kategori') as $category) {
+                if ( $category->parent == 0 ) {
                   $cat = $category->name;
+                }
+
                 }
 
                 $galleribild = get_field('galleribild');
@@ -93,9 +105,11 @@ $query = new WP_Query( $args );
                 $bildid = $galleribild['id'];
                   ?>
 
-                  <img class='galleripost' src='<?php echo $resized ?>' alt='<?php echo $cat ?>' id='<?php echo $bildid ?>'>
+                  <img class='galleripost' src='<?php echo $resized ?>' alt='<?php echo $cat ?>' id='<?php echo $bildid?>'>
 
                   <?php
+
+
              }
            } ?>
         </div>
