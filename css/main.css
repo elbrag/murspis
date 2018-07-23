@@ -293,7 +293,7 @@ button.lang-item {
 /*--Sections--*/
 
 section {
-  box-shadow: 0px 2px 30px rgba(0,0,0,0.5);
+  /* box-shadow: 0px 2px 30px rgba(0,0,0,0.5); */
 }
 
 .topsection {
@@ -307,11 +307,17 @@ section#om {
 }
 
 footer,
-section#kontakt_2 {
+section#kontakt_2,
+section#murspisar_2 {
   padding: 30px 25px 60px 25px;
 }
 
-section#valjaeldstad_1 {
+section#single_1 {
+  padding: 0px 25px 60px 25px;
+}
+
+section#valjaeldstad_1,
+section#murspisar_1 {
   padding-bottom: 45px;
 }
 section#valjaeldstad_2 {
@@ -376,7 +382,24 @@ section#home_2 .btn_1 {
 
 /*--Sida: Murspisar--*/
 
+#murspisar_2 a {
+  text-decoration: none;
+  color: #000;
+}
 
+div.murspis {
+  width: 100%;
+  margin-bottom: 45px;
+}
+.murspis img {
+  width: 100%;
+}
+.murspis h2 {
+  margin: 5px 0;
+}
+.murspis p {
+  margin: 5px 0;
+}
 
 
 /*--Sida: Galleri--*/
@@ -672,8 +695,9 @@ section#om {
   justify-content: space-between;
   margin-top: 45px;
 }
-#om .om-ikoner p {
-
+#om .om-ikoner img {
+  width: 65px;
+  height: 65px;
 }
 .om_image {
   background-image: url(../img/om_bg.jpg);

@@ -193,4 +193,33 @@ function filter(e, target){
   $('.galleripost').not('[alt="' + target + '"]').hide();
 }
 
+
+////////MURSPISAR/////////////////////////
+
+// https://zingersystems.com/news-title-here/
+
+var texts = document.querySelectorAll('.murspis p');
+
+for (var i = 0; i < texts.length; i++) {
+  var shorttext = texts[i].innerHTML;
+  limitWords(texts[i], shorttext, 10);
+}
+
+function limitWords(texttag, textToLimit, wordLimit) {
+
+var finalText = "";
+var text2 = textToLimit.replace(/\s+/g, ' ');
+var text3 = text2.split(' ');
+var numberOfWords = text3.length;
+
+if(numberOfWords > wordLimit) {
+  for ( var i= 0; i < wordLimit; i++ ) {
+    finalText = finalText+" "+ text3[i] + " ";
+    texttag.innerHTML = finalText+"…";
+  }
+  } else return textToLimit;
+}
+
+
+
 });

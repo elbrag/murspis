@@ -162,5 +162,6 @@ $query = new WP_Query( $args );
 
 </section>
 
+<?php require("partials/about.php"); ?>
 
 <?php get_footer(); ?>

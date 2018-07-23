@@ -51,7 +51,18 @@ if( $query->have_posts() ) {
 
     <a href='<?php the_permalink(); ?>'>
       <div class='murspis'>
+
+          <?php
+          $spisbild = get_field('single_bild');
+          $resized = $spisbild['sizes'][ 'grid_thumbnail' ];
+          $bildid = $spisbild['id'];
+            ?>
+
+          <img src='<?php echo $resized ?>'>
+
           <h2><?php the_field('single_rubrik') ?></h2>
+          <p><?php the_field('single_short') ?></p>
+
       </div>
     </a>
 
@@ -60,5 +71,7 @@ if( $query->have_posts() ) {
    } ?>
 
 </section>
+
+<?php require("partials/about.php"); ?>
 
 <?php get_footer(); ?>

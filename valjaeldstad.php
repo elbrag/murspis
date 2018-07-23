@@ -80,4 +80,6 @@ if (get_locale() == 'sv_SE') {
 
 ?>
 
+<?php require("partials/about.php"); ?>
+
 <?php get_footer(); ?>
