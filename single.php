@@ -28,16 +28,21 @@ if( have_posts() ) {
         <h2><?php the_field('single_rubrik') ?></h2>
         <p><?php the_field('single_brodtext') ?></p>
 
+        <?php if( get_field('mer_info') ) { ?>
+            <?php the_field('rubrik_mer_info'); ?>
+	         <a href="<?php the_field('mer_info'); ?>" download >Download File</a>
+        <?php } ?>
+
         <div id='single-icons'>
           <ul>
             <?php
               $funktionfield = get_field_object('funktioner_spis');
               $funktioner = $funktionfield['value'];
               //ikoner till funktioner
-              $stekikon = get_field('ikon_stek');
-              $ugnikon = get_field('ikon_bakugn');
-              $vattenikon = get_field('ikon_vattenvarme');
-              $rokikon = get_field('ikon_rok');
+              $stekikon = get_template_directory_uri() . "/img/stekhall.png";
+              $ugnikon = get_template_directory_uri() . "/img/bakugn.png";
+              $vattenikon = get_template_directory_uri() . "/img/vattenvarme.png";
+              $rokikon = get_template_directory_uri() . "/img/rok.png";
               //
               if ($funktioner) {
                 ?>
@@ -64,7 +69,7 @@ if( have_posts() ) {
 
                 <?php
                   $ved = get_field('vedlangd');
-                  $vedikon = get_field('ikon_vedlangd');
+                  $vedikon = get_template_directory_uri() . "/img/ved.png";
 
                   if ($ved) {
                     ?>
@@ -78,7 +83,7 @@ if( have_posts() ) {
                     <?php
                       $stlfield = get_field_object('storlek');
                       $stl = $stlfield['value'];
-                      $stlikon = get_field('ikon_storlek');
+                      $stlikon = get_template_directory_uri() . "/img/storlek.png";
 
                       if ($stl) {
                         ?>
@@ -100,12 +105,16 @@ if( have_posts() ) {
 
         <div id='single-postlinks'>
           <span class='prev-post'>
-            Föregående <br/>
-            <?php previous_post_link(); ?>
+            <?php if ( get_previous_post() ) {
+              ?>Föregående <br/><?php
+              previous_post_link();
+            } ?>
           </span>
           <span class='next-post'>
-            Nästa <br/>
-            <?php next_post_link(); ?>
+            <?php if ( get_next_post() ) {
+              ?>Nästa <br/><?php
+              next_post_link();
+            } ?>
           </span>
         </div>
 

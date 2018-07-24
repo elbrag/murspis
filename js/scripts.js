@@ -30,6 +30,18 @@ $(document).ready(function() {
     event.stopPropagation();
   });
 
+/////////////////Välja eldstad: gå till toppen
+
+var duration = 300;
+
+$('#to-top').click(function(event) {
+
+  event.preventDefault();
+  $('html, body').animate({scrollTop: 0}, duration);
+
+return false;
+
+})
 
 //////////////////////////GALLERY LIGHTBOX////////////////////////
 

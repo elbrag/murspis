@@ -1,4 +1,4 @@
-<div class="om_image"><section id='om'>
+
 
 <?php
 
@@ -14,65 +14,68 @@ $query = new WP_Query( $args );
 if( $query->have_posts() ) {
     while ( $query->have_posts() ) {
       $query->the_post();
-      ?>
-
-      <h2><?php the_field('rubrik_om') ?></h2>
-      <p><?php the_field('text_om') ?></p>
 
 
-      <?php
-      if (get_locale() == 'sv_SE') {
+      if (get_the_title() == 'Om' OR get_the_title() == 'About') {
         ?>
-          <div class='btn_container'>
-            <a href='/kontakt'>
-              <button class='btn_1'>Be om en offert</button>
-            </a>
-          </div>
+        <div class="om_image"><section id='om'>
 
-        <?php
-      } else {
-        ?>
-          <div class='btn_container'>
-            <a href='/contact'>
-              <button class='btn_1'>Ask for a price suggestion</button>
-            </a>
-          </div>
+          <h2><?php the_field('rubrik_om') ?></h2>
+          <p><?php the_field('text_om') ?></p>
 
-        <?php
-      }
-      ?>
-
-      <div class="om-ikoner">
 
           <?php
-          $ikon1 = get_field('om_ikon_1');
-          $ikon2 = get_field('om_ikon_2');
-          $ikon3 = get_field('om_ikon_3');
+          if (get_locale() == 'sv_SE') {
+            ?>
+              <div class='btn_container'>
+                <a href='/kontakt'>
+                  <button class='btn_1'>Be om en offert</button>
+                </a>
+              </div>
+
+            <?php
+          } else {
+            ?>
+              <div class='btn_container'>
+                <a href='/contact'>
+                  <button class='btn_1'>Ask for a price suggestion</button>
+                </a>
+              </div>
+
+            <?php
+          }
           ?>
 
-          <p>
-            <img src='<?php echo $ikon1 ?>'>
-            <?php the_field('ikon-text_1') ?>
-          </p>
+          <div class="om-ikoner">
 
-          <p>
-            <img src='<?php echo $ikon2 ?>'>
-            <?php the_field('ikon-text_2') ?>
-          </p>
+              <?php
+              $ikon1 = get_field('om_ikon_1');
+              $ikon2 = get_field('om_ikon_2');
+              $ikon3 = get_field('om_ikon_3');
+              ?>
 
-          <p>
-            <img src='<?php echo $ikon3 ?>'>
-            <?php the_field('ikon-text_3') ?>
-          </p>
+              <p>
+                <img src='<?php echo $ikon1 ?>'>
+                <?php the_field('ikon-text_1') ?>
+              </p>
 
-      </div>
+              <p>
+                <img src='<?php echo $ikon2 ?>'>
+                <?php the_field('ikon-text_2') ?>
+              </p>
+
+              <p>
+                <img src='<?php echo $ikon3 ?>'>
+                <?php the_field('ikon-text_3') ?>
+              </p>
+
+          </div>
+
+        </section></div><!--finishing the starting tags-->
+          <?php
+      }
+?>
+
 <?php
     }
   } ?>
-
-
-<?php
-
-?>
-
-</section></div><!--finishing the starting tags (see add_widgets file)-->

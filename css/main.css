@@ -306,19 +306,19 @@ section#om {
   padding: 95px 25px;
 }
 
-footer,
-section#kontakt_2
- {
+footer{
   padding: 30px 25px 60px 25px;
 }
 
 section#single_1,
-section#murspisar_2 {
+section#murspisar_2,
+section#kontakt_2 {
   padding: 0px 25px 60px 25px;
 }
 
 section#valjaeldstad_1,
-section#murspisar_1 {
+section#murspisar_1,
+section#kontakt_1 {
   padding-bottom: 45px;
 }
 section#valjaeldstad_2 {
@@ -408,6 +408,7 @@ div.murspis {
 img.single-ikon {
   width: 50px;
   height: 50px;
+  margin-bottom: 5px;
 }
 
 #single-icons {
@@ -417,9 +418,17 @@ img.single-ikon {
 #single-icons ul {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 #single-icons li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  width: 30%;
+  box-sizing: border-box;
+  font-size: 0.8em;
 }
 
 #single-postlinks {
@@ -679,6 +688,7 @@ section#kontakt_1 {
 #email,
 #adress {
   width: 30%;
+  margin: 0;
 }
 .kontakt-ikoner img {
   width: 65px;
@@ -720,6 +730,11 @@ section#om {
   display: flex;
   justify-content: space-between;
   margin-top: 45px;
+}
+#om .om-ikoner p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #om .om-ikoner img {
   width: 65px;
