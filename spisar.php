@@ -61,7 +61,7 @@ if( $query->have_posts() ) {
           <img src='<?php echo $resized ?>'>
 
           <h2><?php the_field('single_rubrik') ?></h2>
-          <p><?php the_field('single_short') ?></p>
+          <p><?php the_field('single_brodtext') ?></p>
 
       </div>
     </a>
