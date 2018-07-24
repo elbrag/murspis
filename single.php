@@ -34,7 +34,7 @@ if( have_posts() ) {
               $funktionfield = get_field_object('funktioner_spis');
               $funktioner = $funktionfield['value'];
               //ikoner till funktioner
-              $stekikon = get_field('ikon_stekhall');
+              $stekikon = get_field('ikon_stek');
               $ugnikon = get_field('ikon_bakugn');
               $vattenikon = get_field('ikon_vattenvarme');
               $rokikon = get_field('ikon_rok');
@@ -91,17 +91,29 @@ if( have_posts() ) {
           </ul>
         </div>
 
+</section>
 
         <?php
         $sliderid = get_field('single_slider');
         echo do_shortcode( '[masterslider id="'.$sliderid.'' );
         ?>
 
+        <div id='single-postlinks'>
+          <span class='prev-post'>
+            Föregående <br/>
+            <?php previous_post_link(); ?>
+          </span>
+          <span class='next-post'>
+            Nästa <br/>
+            <?php next_post_link(); ?>
+          </span>
+        </div>
+
     <?php
         }
       }
 ?>
-</section>
+
 
 <?php require("partials/about.php"); ?>
 
