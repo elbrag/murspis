@@ -186,21 +186,20 @@ div#menu-items {
   border-radius: 1px;
   background-color: #C65228;
   display: inline-block;
-  margin: 2px;
   float: left;
-  margin: 1px;
+  margin: 0.5px;
   box-sizing: border-box;
   height: 100%;
 }
 
 #menu-symb span.segment1 {
-  width: calc(20% - 2px);
+  width: calc(20% - 1px);
 }
 #menu-symb span.segment2 {
-  width: calc(60% - 2px);
+  width: calc(60% - 1px);
 }
 #menu-symb span.segment3 {
-  width: calc(50% - 2px);
+  width: calc(50% - 1px);
 }
 
 #menu-symb span.bar:nth-child(1) {
@@ -925,7 +924,9 @@ img.kontakt-ikon {
 
   /*--Header and navigation--*/
 
-
+  header {
+    width: 100%;
+  }
 
 
   /*--Sida: Murspisar--*/
