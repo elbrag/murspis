@@ -16,22 +16,57 @@ if( have_posts() ) {
 
        <h1>Galleri</h1>
 
-       <div class='filters'>
-
-         <button class='filter-button' id='alla-kat'>Visa alla</button>
-
-
-         <?php
-         $parents = get_terms(array('taxonomy' => 'kategori', 'hide_empty' => true, 'parent' => 0));
-
-
-         foreach ($parents as $parent) {
-           ?>
-           
-                 <button class='filter-button'><?php echo $parent->name ?></button>
-
-          <?php }
+       <button id='filterbutton'>
+           <?php
+           //changing text depending on set language
+                     if (get_locale() == 'sv_SE') {
+                       echo 'Filter';
+                     }//end of swe language check
+                     if (get_locale() == 'en_GB') {
+                       echo 'Filters';
+                      }//end of eng language check
+           /////////////////////////////////////////////////?>
+           <i class="down"></i>
+       </button>
+       <span id='filter-info'><p>Visar
+         <?php if (isset($_POST['checkbox']) && !empty($_POST['checkbox'])) {
+           echo count($_POST['checkbox']);
+         } else {
+           echo wp_count_terms( 'kategori', array('hide_empty' => true,) );
+         }
          ?>
+         av <?php echo wp_count_terms( 'kategori', array('hide_empty' => true,) ); ?> kategorier</p></span>
+       <div class='filters'>
+         <form method='POST' action=''>
+          <?php
+            $terms = get_terms(array('taxonomy' => 'kategori', 'hide_empty' => true));
+                    foreach ($terms as $value) { ?>
+                    <label class="categories">
+
+                     <input type="checkbox" name="checkbox[]"
+                       <?php
+                       if ((in_array($value->name, $_POST['checkbox'])) || (!isset($_POST['checkbox']))) echo "checked='checked'";
+                       ?>
+                       value='<?php echo $value->name ?>'>
+                    </input>
+                    <span class='checkbox'></span>
+                    <?php echo $value->name ?>
+                    </label>
+                  <?php }
+
+        //changing text of button depending on set language
+                  if (get_locale() == 'sv_SE') {
+                    $filtervalue = 'Filtrera';
+                  }//end of swe language check
+                  if (get_locale() == 'en_GB') {
+                    $filtervalue = 'Filter';
+                   }//end of eng language check
+        /////////////////////////////////////////////////
+                  ?>
+                  <div class='btn_container'>
+                    <input type='submit' id='submit' value=<?php echo $filtervalue ?>></input>
+                  </div>
+        </form>
        </div>
      </section>
   <?php
@@ -59,27 +94,32 @@ $query = new WP_Query( $args );
             while ( $query->have_posts() ) {
               $query->the_post();
 
-              $parents = get_terms(array('id' => get_the_ID(), 'taxonomy' => 'kategori', 'hide_empty' => true, 'parent' => 0));
-              foreach ($parents as $parent) {
-                $par = $parent->name;
-              }
+              foreach (get_the_terms(get_the_ID(), 'kategori') as $cat) {
+                 $category = $cat->name;
+               }
 
-              foreach (get_the_terms(get_the_ID(), 'kategori') as $category) {
-                if ( $category->parent == 0 ) {
-                  $cat = $category->name;
-                }
-
-                }
 
                 $galleribild = get_field('galleribild');
                 $resized = $galleribild['sizes'][ 'grid_thumbnail' ];
                 $bildid = $galleribild['id'];
-                  ?>
 
-                  <img class='galleripost' src='<?php echo $resized ?>' alt='<?php echo $cat ?>' id='<?php echo $bildid?>'>
 
-                  <?php
+                  if (isset($_POST['checkbox']) && !empty($_POST['checkbox'])) {
 
+                   foreach ($_POST['checkbox'] as $check) {
+                      if ($check == $category) {?>
+
+                            <img class='galleripost' src='<?php echo $resized ?>' alt='<?php echo $category ?>' id='<?php echo $bildid?>'>
+
+                        <?php
+                      }
+                    }
+                  } elseif (!isset($_POST['checkbox'])) {?>
+
+                    <img class='galleripost' src='<?php echo $resized ?>' alt='<?php echo $category ?>' id='<?php echo $bildid?>'>
+
+                   <?php
+                 }
 
              }
            } ?>
@@ -96,32 +136,53 @@ $query = new WP_Query( $args );
            while ( $query->have_posts() ) {
              $query->the_post();
 
-             foreach (get_the_terms(get_the_ID(), 'kategori') as $category) {
-                 $cat = $category->name;
+             foreach (get_the_terms(get_the_ID(), 'kategori') as $cat) {
+                 $category = $cat->name;
                }
 
                $galleribild = get_field('galleribild');
                $resized = $galleribild['sizes'][ 'grid_thumbnail' ];
                $bildid = $galleribild['id'];
 
-         ?>
 
-         <div class='galleripost-lb' id='<?php echo $bildid ?>'>
-             <div class='galleribild-lb' style='background-image:url(<?php echo $resized ?>)'></div>
+         if (isset($_POST['checkbox']) && !empty($_POST['checkbox'])) {
 
-             <div class="caption-container">
-                 <h2 id='<?php echo $bildid ?>'>
-                   <?php the_field('galleripost_rubrik') ?>
-                 </h2>
-                 <p class="caption" id='<?php echo $bildid ?>'>
-                     <?php the_field('galleripost_bildtext') ?>
-                 </p>
-             </div>
-         </div>
+          foreach ($_POST['checkbox'] as $check) {
+             if ($check == $category) {?>
 
-       <?php
+               <div class='galleripost-lb' id='<?php echo $bildid ?>'>
+                   <div class='galleribild-lb' style='background-image:url(<?php echo $resized ?>)'></div>
+
+                   <div class="caption-container">
+                       <h2 id='<?php echo $bildid ?>'>
+                         <?php the_field('galleripost_rubrik') ?>
+                       </h2>
+                       <p class="caption" id='<?php echo $bildid ?>'>
+                           <?php the_field('galleripost_bildtext') ?>
+                       </p>
+                   </div>
+               </div>
+               <?php
+             }
             }
-          } ?>
+          } elseif (!isset($_POST['checkbox'])) {?>
+
+            <div class='galleripost-lb' id='<?php echo $bildid ?>'>
+                <div class='galleribild-lb' style='background-image:url(<?php echo $resized ?>)'></div>
+
+                <div class="caption-container">
+                    <h2 id='<?php echo $bildid ?>'>
+                      <?php the_field('galleripost_rubrik') ?>
+                    </h2>
+                    <p class="caption" id='<?php echo $bildid ?>'>
+                        <?php the_field('galleripost_bildtext') ?>
+                    </p>
+                </div>
+            </div>
+
+          <?php }
+      }
+    } ?>
 
                 <!-- Next/previous controls -->
                 <a class="prev">&#10094;</a>

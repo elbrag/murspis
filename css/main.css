@@ -318,7 +318,8 @@ section#kontakt_2 {
 
 section#valjaeldstad_1,
 section#murspisar_1,
-section#kontakt_1 {
+section#kontakt_1,
+section#galleri_1 {
   padding-bottom: 45px;
 }
 section#valjaeldstad_2 {
@@ -453,30 +454,114 @@ img.single-ikon {
 .filters {
   overflow: hidden;
   width: 100%;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  will-change: max-height, opacity;
+  transition: max-height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+	transform: translateZ(0);
 }
-
-.filter-button {
-  height: 45px;
-  font-size: 18px;
-  line-height: 20px;
-  width: calc( 50% - 15px );
-  margin: 5px;
+.filters.open {
+  max-height: 500px;
+  opacity: 1;
+  visibility: visible;
 }
-
-.galleripost.filter-show {
-  display: block;
+.filters.closing {
+  opacity: 0;
+  max-height: 0;
 }
-.galleripost.filter-hide {
-  display: none;
+#filterbutton {
+  background-image: url('../img/filter.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 50px;
+  width: 150px;
+  height: 40px;
+  font-size: 1em;
+  background-color: transparent;
+  position: relative;
+  float: left;
 }
-
-.filter-button.active {
-  background-color: #C65228;
-}
-
-.filter-button:focus {
+#filterbutton:focus{
   outline: none;
 }
+.down{
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  will-change: transform;
+  transition: transform 0.1s ease-in-out;
+  margin-left: 15px;
+  position: absolute;
+  top: 14px;
+}
+.down.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  top: 18px;
+}
+#filter-info {
+  float: left;
+  font-size: 0.8em;
+}
+.categories {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  padding-left: 40px;
+  height: 30px;
+  margin-top: 15px;
+  width: 100%;
+  line-height: 1.8em;
+
+}
+.categories input[type='checkbox'] {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+}
+.filters .btn_container {
+  margin-top: 25px;
+}
+
+.filters input[type='submit'] {
+  display: block;
+  width: 100%;
+}
+
+.checkbox{
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    border: 1px solid #ccc;
+    left: 0;
+    box-shadow: inset 1px 1px 10px rgba(0,0,0,0.25);
+}
+.checkbox:after,
+.checkbox:before {
+    content: '';
+    height: 18px;
+    border-left: 2px solid #424143;
+    position: absolute;
+    left: 12px;
+    display: none;
+    top: 4px;
+}
+.checkbox:after {
+  transform: rotate(45deg);
+}
+.checkbox:before {
+    transform: rotate(-45deg);
+}
+
+.filters input:checked ~ .checkbox:before,
+.filters input:checked ~ .checkbox:after {
+  display: block;
+}
+
 
 
 /*Gallery lightbox*/
@@ -487,11 +572,13 @@ section#galleri_2 {
 
 .thumbnails {
   overflow: hidden;
+  margin-bottom: 90px;
 }
 
 .galleripost {
   width: 50%;
   float: left;
+  cursor: pointer;
 }
 
 .galleribild {

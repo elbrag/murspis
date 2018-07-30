@@ -133,62 +133,22 @@ function changeslide(e, element, which) {
 
 /////////////////////////////////////////GALLERY FILTERS////////////
 
-//if we click just the title (everything on the button except for the dropdown symbol)
-$(".filter-button").click(function(e) {
-  //first of all, "show all" can't be active if we've filtered
-  $("#alla-kat").removeClass('active');
-  $(this).toggleClass('active');
+$("#filterbutton").click(function(e) {
 
+  if ($(".filters").hasClass('open')) {
 
-    filter(this);
+    $(".down").removeClass('up');
+    $(".filters").addClass('closing');
+    setTimeout(function(){
+      $(".filters").removeClass('closing');
+      $(".filters").removeClass('open');
+    }, 200);
 
-
-});
-
-//if we click "show all again..."
-$("#alla-kat").click(function(e) {
-  //other categories can't be opened or active or checked
-  $(".filter-button").removeClass('active');
-  $(this).toggleClass('active');
-
-  if ($(this).hasClass('active')) {
-    $('.galleripost').removeClass('filter-hide');
-    $('.galleripost').addClass('filter-show');
-  }
-
-});
-
-var filterarray = [];
-
-function filter(target){
-
-  var title = target.innerHTML;
-
-  if (target.classList.contains('active')) {
-    filterarray.push(title);
   } else {
-    for (var i = 0; i < filterarray.length; i++) {
-      if (filterarray[i] == title) {
-        filterarray.pop(filterarray[i]);
-      }
-    }
+    $(".down").addClass('up');
+    $(".filters").addClass('open');
   }
-
-  console.log(filterarray);
-
-  var galleripost = $('.galleripost');
-
-    for (var i = 0; i<galleripost.length; i++) {
-
-      if (filterarray.includes(galleripost[i].alt)) {
-        galleripost[i].classList.add('filter-show');
-        galleripost[i].classList.remove('filter-hide');
-      } else {
-        galleripost[i].classList.add('filter-hide');
-        galleripost[i].classList.remove('filter-show');
-      }
-    }
-}
+});
 
 ////////MURSPISAR/////////////////////////
 
