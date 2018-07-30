@@ -133,44 +133,14 @@ function changeslide(e, element, which) {
 
 /////////////////////////////////////////GALLERY FILTERS////////////
 
-//kat-more is the dropdown symbol on the button
-$(".kat-more").click(function(e) {
-  //first of all, "show all" can't be active if we've filtered
-  $("#alla-kat").removeClass('active');
-
-//our parent (the button opens)
-  var parent = $(this).closest(".kat-parent");
-
-  var title = $(this).siblings(".kat-title").html();
-
-  if (parent.hasClass('open')) {
-    parent.removeClass('open');
-    filter(e, title);
-  } else {
-    parent.addClass('open');
-  }
-
-/*...and is also activated (these two are different: open means options are open, active means the parent filter is active)*/
-  parent.addClass('active');
-//when we open the dropdown, all children are checked until we uncheck them
-  parent.find(".kat-child").toggleClass('check');
-});
-
 //if we click just the title (everything on the button except for the dropdown symbol)
-$(".kat-title").click(function(e) {
+$(".filter-button").click(function(e) {
   //first of all, "show all" can't be active if we've filtered
   $("#alla-kat").removeClass('active');
-  //the clicked parent category will be active
+  $(this).toggleClass('active');
 
-  var parent = $(this).closest(".kat-parent");
 
-  if (parent.hasClass('active') && !parent.hasClass('open')) {
-    parent.removeClass('active');
-  } else {
-    parent.addClass('active');
-    filter(e, this.innerHTML);
-  }
-
+    filter(this);
 
 
 });
@@ -178,33 +148,47 @@ $(".kat-title").click(function(e) {
 //if we click "show all again..."
 $("#alla-kat").click(function(e) {
   //other categories can't be opened or active or checked
-  $(".kat-parent").removeClass('active');
-  $(".kat-parent").removeClass('open');
-  $(".kat-child").removeClass('check');
+  $(".filter-button").removeClass('active');
   $(this).toggleClass('active');
 
-});
-
-//if we click a sub-category (child)...
-$(".kat-child").click(function(e) {
-  //to be able to click inside these:
-  event.stopPropagation();
-  //stop button default behaviour:
-  e.preventDefault();
-
-//you have to have at least one checked, so we don't allow unchecking the last one
-  var siblingsnr = $(this).siblings(".kat-child.check").length + 1;
-  if (siblingsnr > 1) {
-    $(this).toggleClass('check');
+  if ($(this).hasClass('active')) {
+    $('.galleripost').removeClass('filter-hide');
+    $('.galleripost').addClass('filter-show');
   }
 
 });
 
-function filter(e, target){
-  console.log(target);
-  $('.galleripost').not('[alt="' + target + '"]').hide();
-}
+var filterarray = [];
 
+function filter(target){
+
+  var title = target.innerHTML;
+
+  if (target.classList.contains('active')) {
+    filterarray.push(title);
+  } else {
+    for (var i = 0; i < filterarray.length; i++) {
+      if (filterarray[i] == title) {
+        filterarray.pop(filterarray[i]);
+      }
+    }
+  }
+
+  console.log(filterarray);
+
+  var galleripost = $('.galleripost');
+
+    for (var i = 0; i<galleripost.length; i++) {
+
+      if (filterarray.includes(galleripost[i].alt)) {
+        galleripost[i].classList.add('filter-show');
+        galleripost[i].classList.remove('filter-hide');
+      } else {
+        galleripost[i].classList.add('filter-hide');
+        galleripost[i].classList.remove('filter-show');
+      }
+    }
+}
 
 ////////MURSPISAR/////////////////////////
 

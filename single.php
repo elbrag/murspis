@@ -12,7 +12,9 @@ if( have_posts() ) {
       $bildid = $spisbild['id'];
         ?>
 
-      <img src='<?php echo $resized ?>'>
+        <div class='crop'>
+          <img class='single_hero' src='<?php echo $resized ?>'>
+        </div>
 
         <?php
           }
@@ -25,7 +27,7 @@ if( have_posts() ) {
     while ( have_posts() ) {
       the_post();
       ?>
-        <h2><?php the_field('single_rubrik') ?></h2>
+        <h1><?php the_field('single_rubrik') ?></h1>
         <p><?php the_field('single_brodtext') ?></p>
 
         <?php if( get_field('mer_info') ) { ?>

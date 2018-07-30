@@ -18,47 +18,18 @@ if( have_posts() ) {
 
        <div class='filters'>
 
-         <span class='kat-parent active' id='alla-kat'>
-           <button class='kat-heading'>
-             <span class='kat-title'>Visa alla</span>
-           </button>
-         </span>
+         <button class='filter-button' id='alla-kat'>Visa alla</button>
+
 
          <?php
          $parents = get_terms(array('taxonomy' => 'kategori', 'hide_empty' => true, 'parent' => 0));
 
 
          foreach ($parents as $parent) {
-
-           $children = get_term_children( $parent->term_id, 'kategori' );
            ?>
+           
+                 <button class='filter-button'><?php echo $parent->name ?></button>
 
-               <span class='kat-parent'>
-                 <button class='kat-heading'>
-                 <span class='kat-title'><?php echo $parent->name ?></span>
-                 <?php
-                 if ( !empty( $children )) {
-                   ?> <span class='kat-more'>&or;</span> <?php
-                 } ?>
-
-                </button>
-
-                 <?php
-
-
-
-
-                 foreach ($children as $child) {
-
-                        $term = get_term_by( 'id', $child, 'kategori' );
-
-                        ?>
-                       <button class='kat-child'>
-                         <?php echo $term->name ?>
-                       </button>
-                  <?php
-                 } ?>
-               </span>
           <?php }
          ?>
        </div>

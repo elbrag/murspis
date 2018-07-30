@@ -57,7 +57,7 @@ function create_gallerypost_category() {
     'show_admin_column'          => true,
     'show_in_nav_menus'          => true,
     'show_tagcloud'              => true,
-    'query_var'                  => 'modell',
+    'query_var'                  => 'kategori',
   );
 
   #the thing that adds it to Wordpress

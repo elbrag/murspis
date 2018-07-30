@@ -54,7 +54,7 @@ if( $query->have_posts() ) {
           <p><?php the_field('brodtext_artikel') ?></p>
 
           <ul>
-            <li><?php the_field('egenskap_1') ?></li>
+            <?php the_field('egenskaper') ?>
           </ul>
 
       </div>
