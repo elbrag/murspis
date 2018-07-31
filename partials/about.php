@@ -20,6 +20,8 @@ if( $query->have_posts() ) {
         ?>
         <div class="om_image"><section id='om'>
 
+          <div class='om-margins'>
+
           <h2><?php the_field('rubrik_om') ?></h2>
           <p><?php the_field('text_om') ?></p>
 
@@ -71,6 +73,7 @@ if( $query->have_posts() ) {
 
           </div>
 
+          </div>
         </section></div><!--finishing the starting tags-->
           <?php
       }

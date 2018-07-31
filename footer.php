@@ -1,5 +1,6 @@
           </main>
           <footer>
+            <div class='footer-margins'>
 
 <?php
 
@@ -66,7 +67,7 @@ if( $query->have_posts() ) {
         } ?>
 
 
-
+            </div>
           </footer>
           <div id='foot'>
             © Rådig Murspis <?php echo date('Y') ?>. Design av <a target="_blank" href='http://ellenbrage.com'>Ellen Brage</a>

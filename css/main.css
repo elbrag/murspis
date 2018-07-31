@@ -271,6 +271,9 @@ li.menu-item a {
   display: flex;
   justify-content: flex-end;
 }
+.lang-items a {
+  text-decoration: none;
+}
 button.lang-item {
   background-repeat: no-repeat;
   background-size: cover;
@@ -378,6 +381,9 @@ section#home_2 .btn_1 {
 .ms-nav-prev {
   background-position: -94px -31px!important;
 }
+
+/*nivo*/
+
 
 
 
@@ -765,7 +771,9 @@ section#om {
 #om .om-ikoner {
   display: flex;
   justify-content: space-between;
-  margin-top: 45px;
+  margin: 45px auto 0 auto;
+  max-width: 400px;
+  font-size: 0.8em;
 }
 #om .om-ikoner p {
   display: flex;
@@ -801,6 +809,7 @@ footer h2 {
   /*sized as an h3, kept as h2 for hierarchy*/
   font-size: 1.2em;
   margin: 20px 0;
+  font-weight: 200;
 }
 
 #footer-1,
@@ -900,6 +909,11 @@ img.kontakt-ikon {
 
 
 
+/*Sektion: Om */
+
+#om .om-ikoner {
+  font-size: 1em;
+}
 
 
   /*--Footer--*/
@@ -926,6 +940,152 @@ img.kontakt-ikon {
 
   header {
     width: 100%;
+    height: 140px;
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+  }
+  nav#main-nav {
+    max-width: 950px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #logo {
+    background-image: url('../img/radig-1-rust.svg');
+    background-position: center;
+  }
+  #menu-top {
+    overflow: hidden;
+    display: block;
+    width: 170px;
+    height: inherit;
+    margin-left: 30px;
+    float: left;
+  }
+  #logocontainer {
+    overflow: hidden;
+  }
+
+  #logocontainer,
+  #logo,
+  nav#main-nav,
+  #logocontainer a {
+    width: inherit;
+    height: inherit;
+  }
+  #menu-symb {
+    display: none;
+  }
+  div#menu-items {
+    visibility: visible;
+    max-height: none;
+    height: auto;
+    opacity: 1;
+    float: left;
+    margin-right: 20px;
+  }
+  ul#main-ul {
+    overflow: hidden;
+    float: right;
+    margin-right: 60px;
+  }
+  li.menu-item {
+    float: left;
+    margin: 0 20px;
+  }
+  .lang-items {
+    display: inline;
+    float: right;
+  }
+  button.lang-item {
+    height: 22px;
+    width: 26px;
+  }
+
+
+  /*--Sida: Murspisar--*/
+
+
+
+
+  /*--Sida: Galleri--*/
+
+
+
+
+
+  /*--Sida: Välja eldstad--*/
+
+
+
+
+
+  /*--Sida: Kontakt--*/
+
+
+/*--Sektion: Om--*/
+
+.om_image {
+
+}
+
+.om-margins {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+
+
+    /*--Footer--*/
+
+
+    footer {
+
+    }
+
+    .footer-margins {
+      max-width: 950px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 0 auto;
+    }
+
+    #foot {
+      height: 25px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    #footer-1,
+    #footer-2,
+    #footer-3 {
+
+    }
+
+
+
+}
+
+
+
+/*=====================================1200PX========================================*/
+
+@media (min-width: 1200px) {
+
+
+  /*--Basics and general--*/
+
+
+
+
+
+  /*--Header and navigation--*/
+
+  nav#main-nav {
+    max-width: 1150px;
   }
 
 
@@ -955,17 +1115,17 @@ img.kontakt-ikon {
     /*--Footer--*/
 
 
-
+    .footer-margins {
+      max-width: 1150px;
+    }
 
 
 
 }
 
+/*=====================================1500PX========================================*/
 
-
-/*=====================================1200PX========================================*/
-
-@media (min-width: 1200px) {
+@media (min-width: 1500px) {
 
 
   /*--Basics and general--*/

@@ -35,7 +35,8 @@ if( have_posts() ) {
      <section id='home_2'>
         <?php
           $sliderid = get_field('slider-id_sektion_2');
-          echo do_shortcode( '[masterslider id="'.$sliderid.'' );
+          // echo do_shortcode( '[masterslider id="'.$sliderid.'' );
+           nivo_slider( $sliderid );
 
 
           if (get_locale() == 'sv_SE') {
