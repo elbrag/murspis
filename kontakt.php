@@ -15,6 +15,7 @@ if( have_posts() ) {
 
 
      <section id='kontakt_1' class='topsection'>
+       <div class='margins'>
 
        <h1><?php the_field('rubrik_kontakt') ?></h1>
        <p><?php the_field('introtext_kontakt') ?></p>
@@ -33,9 +34,10 @@ if( have_posts() ) {
            <?php the_field('adress') ?>
          </p>
        </div>
-
+      </div>
      </section>
      <section id='kontakt_2'>
+       <div class='margins'>
 
        <h2><?php the_field('rubrik_formular') ?></h2>
        <?php
@@ -47,6 +49,7 @@ if( have_posts() ) {
        }
 
        ?>
+      </div>
      </section>
 
   <?php

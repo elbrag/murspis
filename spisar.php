@@ -15,10 +15,12 @@ if( have_posts() ) {
 
 
      <section id='murspisar_1' class='topsection'>
+       <div class='margins'>
 
-       <h1><?php the_field('rubrik_spisar') ?></h1>
-       <p><?php the_field('introtext_spisar') ?></p>
+         <h1><?php the_field('rubrik_spisar') ?></h1>
+         <p><?php the_field('introtext_spisar') ?></p>
 
+       </div>
      </section>
 
 
@@ -42,6 +44,7 @@ $query = new WP_Query( $args );
 ?>
 
 <section id='murspisar_2'>
+  <div class='margins'>
 
 <?php
 if( $query->have_posts() ) {
@@ -49,8 +52,9 @@ if( $query->have_posts() ) {
       $query->the_post();
 ?>
 
-    <a href='<?php the_permalink(); ?>'>
+
       <div class='murspis'>
+        <a href='<?php the_permalink(); ?>'>
 
           <?php
           $spisbild = get_field('single_bild');
@@ -60,16 +64,18 @@ if( $query->have_posts() ) {
 
           <img src='<?php echo $resized ?>'>
 
-          <h2><?php the_field('single_rubrik') ?></h2>
-          <p><?php the_field('single_brodtext') ?></p>
+          <div class='texts'>
+            <h2><?php the_field('single_rubrik') ?></h2>
+            <p><?php the_field('single_brodtext') ?></p>
+          </div>
 
+        </a>
       </div>
-    </a>
-
 
     <?php }
    } ?>
 
+ </div>
 </section>
 
 <?php require("partials/about.php"); ?>

@@ -1,5 +1,9 @@
 <?php get_header(); ?>
 
+<script>
+document.getElementById('menu-item-94').className += ' active';
+</script>
+
 <?php
 
 
@@ -21,6 +25,7 @@ if( have_posts() ) {
         }
 ?>
 <section id='single_1'>
+  <div class='margins'>
 <?php
 
   if( have_posts() ) {
@@ -97,13 +102,33 @@ if( have_posts() ) {
 
           </ul>
         </div>
-
+    </div>
 </section>
+<section id='single_2'>
+  <div class='margins'>
 
-        <?php
-        $sliderid = get_field('single_slider');
-        echo do_shortcode( '[masterslider id="'.$sliderid.'' );
-        ?>
+  <?php
+      //Get the images ids from the post_metadata
+      $images = acf_photo_gallery('minigalleri', $post->ID);
+      //Check if return array has anything in it
+      if( count($images) ) {
+          //Cool, we got some data so now let's loop over it
+          foreach($images as $image) {
+              $id = $image['id']; // The attachment id of the media
+              $title = $image['title']; //The title
+              $caption = $image['caption']; //The caption
+              $full_image_url = $image['full_image_url']; //Full size image url
+              $thumbnail_image_url = acf_photo_gallery_resize_image($full_image_url, 400, 400, true); //Get the thumbnail size image url 150px by 150px
+              ?>
+              <div class='single_galleribild'>
+                <img src='<?php echo $thumbnail_image_url ?>'>
+              </div>
+              <?php
+            }
+          }
+  ?>
+  </div>
+</section>
 
         <div id='single-postlinks'>
           <span class='prev-post'>

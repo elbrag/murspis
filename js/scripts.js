@@ -31,7 +31,7 @@ $(document).ready(function() {
   });
 
 //Scrolling changes how much space the menu takes
-  var offset = 250;
+  var offset = 180;
   var duration = 100;
   var header = $("header");
 

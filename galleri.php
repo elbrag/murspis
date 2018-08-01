@@ -13,6 +13,7 @@ if( have_posts() ) {
      ?>
 
      <section id='galleri_1' class='topsection'>
+       <div class='margins'>
 
        <h1>Galleri</h1>
 
@@ -68,7 +69,8 @@ if( have_posts() ) {
                   </div>
         </form>
        </div>
-     </section>
+     </div>
+  </section>
   <?php
     }
   }
@@ -87,6 +89,7 @@ $query = new WP_Query( $args );
 ?>
 
 <section id='galleri_2'>
+  <div class='margins'>
 
     <div class='thumbnails'>
         <?php
@@ -191,7 +194,7 @@ $query = new WP_Query( $args );
 
             </div>
         </div>
-
+      </div>
 </section>
 
 <?php require("partials/about.php"); ?>

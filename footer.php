@@ -1,6 +1,6 @@
           </main>
           <footer>
-            <div class='footer-margins'>
+            <div class='margins'>
 
 <?php
 

@@ -25,7 +25,7 @@ ul li {
 }
 
 h1 {
-  font-size: 2.2em;
+  font-size: 2em;
   margin: 30px 0;
 }
 h2 {
@@ -68,6 +68,7 @@ input[type='submit']:focus {
 .btn_container {
   width: 100%;
   margin-top: 45px;
+  text-align: center;
 }
 
 input[type='submit'] {
@@ -81,6 +82,13 @@ input[type='submit'] {
   background-color: #fff;
   font-size: 1.2em;
   color: #C65228;
+}
+
+.btn_2 {
+  background-color: #C65228;
+  color: #fff;
+  width: 100%;
+  font-size: 1.2em;
 }
 
 /*--Header and navigation--*/
@@ -98,16 +106,17 @@ header {
   z-index: 100;
   position: fixed;
   top: 0;
-  border-radius: 0 0 2px 2px;
 }
 header.scrolled {
   width: 170px;
+  border-radius: 0 0 2px 0;
 }
 
 header.menu-open {
   width: 300px;
   margin: 0;
   padding: 10px 20px;
+  border-radius: 0 0 2px 0;
 }
 
 nav#main-nav {
@@ -319,9 +328,16 @@ section {
 }
 
 .topsection {
-  padding: 100px 25px 80px 25px;
+  padding: 100px 25px 45px 25px;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.margins {
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
 }
 
 section#om {
@@ -338,12 +354,10 @@ section#kontakt_2 {
   padding: 0px 25px 60px 25px;
 }
 
-section#valjaeldstad_1,
-section#murspisar_1,
-section#kontakt_1,
-section#galleri_1 {
-  padding-bottom: 45px;
+section#home_2 {
+  padding: 45px 25px 60px 25px;
 }
+
 section#valjaeldstad_2 {
   padding-bottom: 60px;
 }
@@ -353,20 +367,61 @@ section#valjaeldstad_2 {
 section#home_1 {
   color: #fff;
   padding: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+#home_1 .textbox {
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  color: #424143;
+  z-index: 10;
+  text-align: center;
+  padding: 10px 20px;
+  align-items: center;
+  border-radius: 2px 2px 0 0;
+  box-shadow: 2px -8px 10px rgba(0,0,0,0.1);
+}
+#home_1 h1 {
+  font-size: 1.6em;
+  margin: 5px 0;
+  color: #424143;
 }
 
 section#home_2 {
   position: relative;
-
 }
 
 section#home_2 .btn_container {
-  position: absolute;
-  bottom: 35px;
-  margin: 0 25px;
+  overflow: hidden;
 }
 section#home_2 .btn_1 {
-  width: calc(100% - 50px);
+  background-color: #C65228;
+  color: #fff;
+}
+
+#home_2 h3 {
+  display: inline;
+  margin: 10px 0;
+  font-weight: 500;
+}
+#home_2 p {
+  display: inline;
+  font-size: 0.8em;
+}
+
+.home-galleriposter {
+  overflow: hidden;
+}
+
+.home-galleripost {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.home-galleripost img {
+  width: 100%;
 }
 
 /*Slider*/
@@ -406,6 +461,7 @@ section#home_2 .btn_1 {
 
 .nivoSlider {
   width: 140%!important;
+  margin-top: 85px!important;
 }
 
 
@@ -417,9 +473,13 @@ section#home_2 .btn_1 {
 }
 
 div.murspis {
-  width: 100%;
+  width: 96%;
   margin-bottom: 45px;
+  background-color: #eee;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+  overflow: hidden;
 }
+
 .murspis img {
   width: 100%;
 }
@@ -471,6 +531,16 @@ img.single-ikon {
   padding: 60px 25px;
   display: flex;
   justify-content: space-between;
+}
+
+.single_galleribild {
+  display: inline;
+  width: 50%;
+  float: left;
+  margin-bottom: -6px;
+}
+.single_galleribild img {
+  width: 100%;
 }
 
 /*--Sida: Galleri--*/
@@ -747,16 +817,24 @@ section#kontakt_1 {
   margin-top: 45px;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  max-width: 600px;
+  margin: 45px auto 0 auto;
 }
 #tel,
 #email,
 #adress {
   width: 30%;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8em;
 }
+
 .kontakt-ikoner img {
   width: 65px;
   display: block;
+  margin-bottom: 5px;
 }
 
 section#kontakt_2 {
@@ -766,10 +844,16 @@ section#kontakt_2 {
 /*form*/
 
 .wpcf7 {
-
+  max-width: 700px;
+  margin: 0 auto!important;
 }
 .wpcf7 input,
 .wpcf7 textarea {
+  padding: 10px 20px;
+  font-size: 1.4em;
+  width: 90%;
+}
+.wpcf7 input[type='submit'] {
   width: 100%;
 }
 
@@ -807,7 +891,6 @@ section#om {
   height: 65px;
 }
 .om_image {
-  background-image: url(../img/om_bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -876,7 +959,9 @@ img.kontakt-ikon {
 
   /*--Basics and general--*/
 
-
+h1 {
+  font-size: 2.2em;
+}
 
 
   /*Buttons*/
@@ -892,16 +977,6 @@ img.kontakt-ikon {
     margin-top: 45px;
   }
 
-  .btn_1 {
-    width: 100%;
-    background-color: #fff;
-    font-size: 1.2em;
-  }
-.btn_1:hover {
-  background-color: transparent;
-  border: 1px solid #fff;
-}
-
 
 
 
@@ -909,11 +984,40 @@ img.kontakt-ikon {
 
 
 
+/*Hem */
+
+.home-galleripost {
+  float: left;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 50%;
+}
 
   /*--Sida: Murspisar--*/
 
+  div.murspis {
+    box-sizing: border-box;
+    margin: 0 auto 45px auto;
+  }
+  .murspis a {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+  .murspis img {
+    width: 50%;
+  }
+  .murspis .texts {
+    width: 50%;
+    padding: 0 45px;
+    box-sizing: border-box;
+  }
 
+  /*Murspis single*/
 
+  .single_galleribild {
+    width: 33.33%;
+  }
 
   /*--Sida: Galleri--*/
 
@@ -954,8 +1058,31 @@ img.kontakt-ikon {
 
   /*--Basics and general--*/
 
+  h1 {
+    font-size: 2.4em;
+  }
+
+  /*buttons*/
+
+  .btn_1 {
+    width: 40%;
+  }
+
+  .btn_2 {
+    width: 40%;
+  }
 
 
+/*Sektioner*/
+
+section#home_2,
+section#om {
+  padding: 120px 25px 150px 25px;
+}
+
+.topsection {
+  padding: 200px 25px 90px 25px;
+}
 
 
   /*--Header and navigation--*/
@@ -1020,6 +1147,7 @@ img.kontakt-ikon {
     overflow: hidden;
     float: right;
     margin-right: 60px;
+    margin-bottom: -2px;
   }
   li.menu-item {
     float: left;
@@ -1041,10 +1169,25 @@ img.kontakt-ikon {
     width: 26px;
   }
 
+
+/*Hem */
+
+#home_1 h1 {
+  font-size: 1.8em;
+}
+#home_1 .textbox {
+  padding: 10px 60px 20px 60px;
+}
+
+.home-galleripost {
+  width: 33.33%;
+}
+
   /*nivo*/
 
   .nivoSlider {
     width: 100%!important;
+    margin-top: 0!important;
   }
 
   /*--Sida: Murspisar--*/
@@ -1054,8 +1197,16 @@ img.kontakt-ikon {
 
   /*--Sida: Galleri--*/
 
-
-
+  .galleripost {
+    width: 33.33%;
+  }
+  .modal-content {
+    width: 50%;
+    margin-top: 45px;
+  }
+  .galleribild-lb {
+    height: 600px;
+  }
 
 
   /*--Sida: Välja eldstad--*/
@@ -1069,16 +1220,6 @@ img.kontakt-ikon {
 
 /*--Sektion: Om--*/
 
-.om_image {
-
-}
-
-.om-margins {
-  max-width: 950px;
-  margin: 0 auto;
-}
-
-
 
     /*--Footer--*/
 
@@ -1087,12 +1228,10 @@ img.kontakt-ikon {
 
     }
 
-    .footer-margins {
-      max-width: 950px;
+    footer .margins {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      margin: 0 auto;
     }
 
     #foot {

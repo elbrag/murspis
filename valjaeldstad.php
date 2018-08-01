@@ -15,10 +15,10 @@ if( have_posts() ) {
 
 
      <section id='valjaeldstad_1' class='topsection'>
-
-       <h1><?php the_field('rubrik_valja_eldstad') ?></h1>
-       <p><?php the_field('introtext_valja_eldstad') ?></p>
-
+        <div class='margins'>
+           <h1><?php the_field('rubrik_valja_eldstad') ?></h1>
+           <p><?php the_field('introtext_valja_eldstad') ?></p>
+        </div>
       </section>
 
        <img id='valjaeldstad_top' src='<?php the_field('bild_valja_eldstad') ?>' />
@@ -41,6 +41,7 @@ $query = new WP_Query( $args );
 ?>
 
 <section id='valjaeldstad_2'>
+  <div class='margins'>
 
 <?php
 if( $query->have_posts() ) {
@@ -64,6 +65,7 @@ if( $query->have_posts() ) {
     <?php }
    } ?>
 
+ </div>
 </section>
 
 <?php

@@ -15,12 +15,14 @@ if( $query->have_posts() ) {
     while ( $query->have_posts() ) {
       $query->the_post();
 
+      $ombild = get_field('bakgrundsbild_om');
+      $resized = $ombild['sizes'][ 'max_screenwidth' ];
 
       if (get_the_title() == 'Om' OR get_the_title() == 'About') {
         ?>
-        <div class="om_image"><section id='om'>
+        <div class="om_image" style='background-image:url(<?php echo $resized ?>)'><section id='om'>
 
-          <div class='om-margins'>
+          <div class='margins'>
 
           <h2><?php the_field('rubrik_om') ?></h2>
           <p><?php the_field('text_om') ?></p>
