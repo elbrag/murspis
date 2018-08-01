@@ -30,6 +30,21 @@ $(document).ready(function() {
     event.stopPropagation();
   });
 
+//Scrolling changes how much space the menu takes
+  var offset = 250;
+  var duration = 100;
+  var header = $("header");
+
+$(window).scroll(function() {
+
+    if ($(this).scrollTop() > offset) {
+      header.addClass('scrolled');
+    } else {
+      header.removeClass('scrolled');
+    }
+
+});
+
 /////////////////Välja eldstad: gå till toppen
 
 var duration = 300;

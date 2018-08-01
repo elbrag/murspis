@@ -13,14 +13,13 @@ if( have_posts() ) {
 
      ?>
 
-     <?php
-     $section1bg = get_field('bild_sektion_1');
-     $resized = $section1bg['sizes'][ 'max_screenwidth' ];
+     <section id='home_1' class='topsection'>
 
-
-      ?>
-
-     <section id='home_1' class='topsection' style='background-image:url(<?php echo $resized ?>)'>
+       <?php
+         $sliderid = get_field('slider-id_sektion_2');
+         // echo do_shortcode( '[masterslider id="'.$sliderid.'' );
+          nivo_slider( $sliderid );
+          ?>
 
        <h1><?php the_field('rubrik_sektion_1') ?></h1>
        <?php
@@ -34,10 +33,6 @@ if( have_posts() ) {
 
      <section id='home_2'>
         <?php
-          $sliderid = get_field('slider-id_sektion_2');
-          // echo do_shortcode( '[masterslider id="'.$sliderid.'' );
-           nivo_slider( $sliderid );
-
 
           if (get_locale() == 'sv_SE') {
             ?>

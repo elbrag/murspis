@@ -86,23 +86,28 @@ input[type='submit'] {
 /*--Header and navigation--*/
 
 header {
-  width: 170px;
+  width: 100%;
   box-sizing: border-box;
-  background-color: #fff;
-  margin: -10px 0 0 10px;
-  padding: 20px 20px 10px 20px;
+  background-color: rgba(65, 67, 66, 1);
+  margin: 0;
+  padding: 10px 20px;
   box-shadow: 2px 3px 10px rgba(0,0,0,0.4);
-  transition: width 0.2s ease-in-out;
-	will-change: width;
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+	will-change: width, height;
 	transform: translateZ(0);
   z-index: 100;
   position: fixed;
   top: 0;
   border-radius: 0 0 2px 2px;
 }
+header.scrolled {
+  width: 170px;
+}
 
 header.menu-open {
   width: 300px;
+  margin: 0;
+  padding: 10px 20px;
 }
 
 nav#main-nav {
@@ -142,13 +147,14 @@ div#menu-items {
   margin: 25px 0;
 }
 
+
 /*menu icon*/
 
 #menu-symb {
   align-self: center;
   float: right;
   width: 35px;
-  height: 25px;
+  height: 18px;
   cursor: pointer;
   position: relative;
   -webkit-touch-callout: none;
@@ -159,6 +165,9 @@ div#menu-items {
     user-select: none;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
+#menu-symb.open {
+  height: 25px;
+}
 
 #menu-symb:focus {
   outline: rgba(65, 67, 66, 0.45) solid 1px;
@@ -167,7 +176,7 @@ div#menu-items {
 #menu-symb span.bar {
   display: block;
   position: absolute;
-  height: 5px;
+  height: 3px;
   width: 100%;
   border-radius: 1px;
   left: 0;
@@ -255,16 +264,27 @@ li.menu-item {
   transition: margin 0.2s ease-in-out;
 	will-change: margin;
 	transform: translateZ(0);
-}
 
+
+}
+#menu-items.menu-open ul {
+  margin-bottom: 15px;
+  overflow: hidden;
+}
 #menu-items.menu-open li.menu-item {
-  margin: 10px 0;
+  margin: 5px 0;
+  display: inline;
+  float: left;
+  clear: both;
 }
 
 li.menu-item a {
   text-decoration: none;
   font-size: 20px;
-  color: #000;
+  color: #fff;
+}
+li.menu-item.active {
+  border-bottom: 2px solid #C65228;
 }
 
 .lang-items {
@@ -332,7 +352,7 @@ section#valjaeldstad_2 {
 
 section#home_1 {
   color: #fff;
-  padding: 150px 25px 80px 25px;
+  padding: 0;
 }
 
 section#home_2 {
@@ -384,7 +404,9 @@ section#home_2 .btn_1 {
 
 /*nivo*/
 
-
+.nivoSlider {
+  width: 140%!important;
+}
 
 
 /*--Sida: Murspisar--*/
@@ -944,6 +966,14 @@ img.kontakt-ikon {
     margin: 0;
     border-radius: 0;
     padding: 0;
+    background-color: rgba(65, 67, 66, 0.95);
+  }
+  header.scrolled {
+    width: 100%;
+    height: 95px;
+  }
+  header.scrolled #logo {
+    background-size: 75%;
   }
   nav#main-nav {
     max-width: 950px;
@@ -994,7 +1024,14 @@ img.kontakt-ikon {
   li.menu-item {
     float: left;
     margin: 0 20px;
+    border-bottom: none;
+    will-change: border-bottom;
+    transition: border-bottom 0.05s linear;
   }
+  li.menu-item:hover {
+    border-bottom: 2px solid #C65228;
+  }
+
   .lang-items {
     display: inline;
     float: right;
@@ -1004,6 +1041,11 @@ img.kontakt-ikon {
     width: 26px;
   }
 
+  /*nivo*/
+
+  .nivoSlider {
+    width: 100%!important;
+  }
 
   /*--Sida: Murspisar--*/
 
