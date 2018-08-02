@@ -18,10 +18,9 @@ if( have_posts() ) {
         <div class='margins'>
            <h1><?php the_field('rubrik_valja_eldstad') ?></h1>
            <p><?php the_field('introtext_valja_eldstad') ?></p>
+           <img id='valjaeldstad_top' src='<?php the_field('bild_valja_eldstad') ?>' />
         </div>
       </section>
-
-       <img id='valjaeldstad_top' src='<?php the_field('bild_valja_eldstad') ?>' />
 
   <?php
     }

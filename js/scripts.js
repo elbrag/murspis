@@ -191,6 +191,4 @@ if(numberOfWords > wordLimit) {
   } else return textToLimit;
 }
 
-
-
 });
