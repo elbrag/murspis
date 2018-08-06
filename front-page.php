@@ -24,10 +24,11 @@ if( have_posts() ) {
           <div class='textbox'>
            <h1><?php the_field('rubrik_sektion_1') ?></h1>
            <?php if (get_field('underrubrik_sektion_1')) {
-              ?><a href='<?php the_field('lank_underrubrik'); ?>'><?php
-                the_field('underrubrik_sektion_1');
-                ?></a><?php
+
+                ?><p><?php the_field('underrubrik_sektion_1');?></p><?php
+
               } ?>
+              <i class='home_down'></i>
           </div>
 
      </section>

@@ -393,18 +393,31 @@ section#home_1 {
 
 #home_1 .textbox {
   position: absolute;
-  bottom: 0;
-  background-color: #fff;
+  bottom: 20%;
   color: #424143;
   z-index: 10;
   text-align: center;
   padding: 10px 20px;
   align-items: center;
   border-radius: 2px 2px 0 0;
-  box-shadow: 2px -8px 10px rgba(0,0,0,0.1);
 }
+.textbox p {
+  display: block;
+  margin: 0;
+}
+.home_down{
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
 #home_1 h1 {
-  font-size: 1.6em;
+  font-size: 2.5em;
   margin: 5px 0;
   color: #424143;
 }
@@ -1004,6 +1017,18 @@ img.kontakt-ikon {
   color: #424143;
 }
 
+/*=====================================500PX========================================*/
+
+@media (min-width: 500px) {
+
+
+  #home_1 .textbox {
+    bottom: 35%;
+  }
+
+
+ }
+
 /*=====================================640PX========================================*/
 
 @media (min-width: 640px) {
@@ -1226,7 +1251,7 @@ section#om {
 /*Hem */
 
 #home_1 h1 {
-  font-size: 1.8em;
+  font-size: 4.5em;
 }
 #home_1 .textbox {
   padding: 10px 60px 20px 60px;

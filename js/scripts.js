@@ -45,14 +45,22 @@ $(window).scroll(function() {
 
 });
 
-/////////////////Välja eldstad: gå till toppen
+//clicking on the down arrow at the home page scrolls to the about section
+$('.home_down').click(function(event) {
 
-var duration = 300;
+  setTimeout(function(){
+    $('body, html').animate({scrollTop: $('.om_image').offset().top - 100}, 400);
+  }, 100);
+  return false;
+
+});
+
+/////////////////Välja eldstad: gå till toppen
 
 $('#to-top').click(function(event) {
 
   event.preventDefault();
-  $('html, body').animate({scrollTop: 0}, duration);
+  $('html, body').animate({scrollTop: 0}, 300);
 
 return false;
 
