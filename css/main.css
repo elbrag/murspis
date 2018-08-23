@@ -24,6 +24,14 @@ ul li {
   list-style: none;
 }
 
+p, h1, h2, h3, h4 {
+  color: #424143;
+}
+
+h1, h2, h3, h4 {
+
+}
+
 p, li {
   font-size: 1em;
   line-height: 1.6em;
@@ -298,7 +306,7 @@ li.menu-item {
   overflow: hidden;
 }
 #menu-items.menu-open li.menu-item {
-  margin: 5px 0;
+  margin: 10px 0;
   display: inline;
   float: left;
   clear: both;
@@ -308,8 +316,17 @@ li.menu-item a {
   text-decoration: none;
   font-size: 20px;
   color: #fff;
+  position: relative;
 }
-li.menu-item.active {
+li.menu-item.active a:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  opacity: 1;
+  display: inline-block;
+  height: 1em;
+  width: 100%;
+  margin-top: 10px;
   border-bottom: 2px solid #C65228;
 }
 
@@ -322,7 +339,8 @@ li.menu-item.active {
 }
 button.lang-item {
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 90%;
+  background-color: transparent;
   background-position: center;
   height: 30px;
   width: 38px;
@@ -335,7 +353,10 @@ button.lang-item {
 .lang-item.en {
   background-image: url(../img/gb.png);
 }
-
+.lang-items .active button {
+  border: 2px solid #fff;
+  background-size: cover;
+}
 
 
 /*--Sections--*/
@@ -558,7 +579,7 @@ div.murspis {
 /*--Sida: Murspis single--*/
 
 .crop {
-  height: 240px;
+  height: 280px;
   overflow: hidden;
 }
 .crop img.single_hero {
@@ -604,7 +625,7 @@ img.single-ikon {
   margin-bottom: -6px;
 }
 .single_galleribild img {
-  width: 100%;
+  width: calc(100% - 5px);
 }
 
 /*--Sida: Galleri--*/
@@ -737,7 +758,8 @@ section#galleri_2 {
 }
 
 .galleripost {
-  width: 50%;
+  width: calc(50% - 5px);
+  margin: 2.5px;
   float: left;
   cursor: pointer;
 }
@@ -838,6 +860,12 @@ section#galleri_2 {
   padding: 2px 16px;
   color: white;
 }
+.caption-container h2 {
+  margin: 0;
+}
+.caption-container p {
+  margin: 0;
+}
 
 .galleripost-lb {
   display: none;
@@ -884,7 +912,8 @@ section#kontakt_1 {
 }
 #tel,
 #email,
-#adress {
+#adress,
+#facebook {
   width: 30%;
   margin: 0;
   display: flex;
@@ -923,17 +952,19 @@ section#kontakt_2 {
 
 
 section#om {
-  background-color: rgba(198, 82, 40, 0.65);
+  background-color: rgba(90, 90, 90, 0.65);
 }
 
 #om h2 {
   color: #fff;
-  display: inline;
+  text-align: center;
+  font-family: 'Times new roman';
 }
 
 #om p {
   color: #fff;
   display: inline;
+  font-weight: 300;
 }
 
 #om .om-ikoner {
@@ -955,6 +986,7 @@ section#om {
 .om_image {
   background-repeat: no-repeat;
   background-size: cover;
+  margin: 10px;
 }
 
 
@@ -973,8 +1005,8 @@ footer a {
 
 footer h2 {
   color: #fff;
-  /*sized as an h3, kept as h2 for hierarchy*/
-  font-size: 1.6em;
+  font-size: 2.5em;
+  text-align: center;
   margin: 20px 0;
   font-weight: 200;
   border-bottom: 1px solid #777;
@@ -985,19 +1017,22 @@ footer h2 {
   margin-bottom: 45px;
 }
 
-#footer-1 p {
+/* #footer-1 p {
   display: flex;
   align-items: center;
   font-size: 1em;
+} */
+
+footer .kontakt-ikoner {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 45px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 600px;
+  margin: 45px auto 0 auto;
 }
 
-img.kontakt-ikon {
-  margin-right: 20px;
-}
-
-#footer-3 p {
-  margin: 0;
-}
 .link-desc {
   display: flex;
   align-items: center;
@@ -1007,14 +1042,24 @@ img.kontakt-ikon {
 }
 
 #foot {
-  height: 60px;
-  padding: 25px;
-  background-color: #222;
-  color: #424143;
+  padding: 10px;
+  font-size: 0.8em;
+  color: #111;
+  text-align: center;
 }
 
-#foot a:visited {
-  color: #424143;
+#foot a {
+  color: #111;
+}
+
+#foot_logo {
+  width: 50%;
+  height: 180px;
+  margin: 0 auto 40px auto;
+  background-image: url(../img/radig-1-rust.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 /*=====================================500PX========================================*/
@@ -1091,6 +1136,10 @@ h1 {
 
   /*Murspis single*/
 
+  .crop {
+    height: 400px;
+  }
+
   .single_galleribild {
     width: 33.33%;
   }
@@ -1133,8 +1182,8 @@ h1 {
   /*--Basics and general--*/
 
   p, li {
-    font-size: 1.2em;
-    line-height: 1.8em;
+    font-size: 1.1em;
+    line-height: 1.6em;
   }
 
   h1 {
@@ -1159,7 +1208,7 @@ section#om {
 }
 
 .topsection {
-  padding: 200px 25px 90px 25px;
+  padding: 180px 25px 90px 25px;
 }
 
 
@@ -1234,12 +1283,32 @@ section#om {
     will-change: border-bottom;
     transition: border-bottom 0.05s linear;
   }
-  li.menu-item:hover {
+  li.menu-item a {
+    line-height: 32px;
+  }
+  li.menu-item a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    height: 1em;
+    width: 100%;
     border-bottom: 2px solid #C65228;
+    margin-top: 10px;
+    opacity: 0;
+  	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  	transition: opacity 0.35s, transform 0.35s;
+  	-webkit-transform: scale(0,1);
+  	transform: scale(0,1);
+  }
+  li.menu-item a:hover:after {
+    opacity: 1;
+  	-webkit-transform: scale(1);
+  	transform: scale(1);
   }
 
   .lang-items {
-    display: inline;
+    align-items: center;
     float: right;
   }
   button.lang-item {
@@ -1284,12 +1353,16 @@ section#om {
   /*--Sida: Murspisar--*/
 
 
+/*Murspis single*/
 
+.crop {
+  height: 60vh;
+}
 
   /*--Sida: Galleri--*/
 
   .galleripost {
-    width: 33.33%;
+    width: calc(33.33% - 5px);
   }
   .modal-content {
     width: 50%;
@@ -1317,32 +1390,19 @@ section#om {
 
 /*--Sektion: Om--*/
 
+.om_image {
+  margin: 30px;
+}
+#om h2 {
+  font-size: 4.5em;
+}
 
     /*--Footer--*/
 
 
-    footer {
-
-    }
-
-    footer .margins {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
     #foot {
-      height: 25px;
-      padding: 10px;
-      text-align: center;
+      padding: 25px;
     }
-
-    #footer-1,
-    #footer-2,
-    #footer-3 {
-
-    }
-
 
 
 }

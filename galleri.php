@@ -144,7 +144,7 @@ $query = new WP_Query( $args );
                }
 
                $galleribild = get_field('galleribild');
-               $resized = $galleribild['sizes'][ 'grid_thumbnail' ];
+               $resized = $galleribild['sizes'][ 'huge_thumbnail' ];
                $bildid = $galleribild['id'];
 
 

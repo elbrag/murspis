@@ -1,5 +1,24 @@
 $(document).ready(function() {
 
+//Making sure the menu changes properly when screen width changes
+
+    function windowSize() {
+      windowWidth = window.innerWidth ? window.innerWidth : $(window).width();
+      return windowWidth;
+    }
+
+    $(window).resize(function() {
+          windowSize();
+          if (windowSize() >= 960) {
+            $('header').removeClass('menu-open');
+            $('#menu-items').removeClass('menu-open');
+            $("#menu-symb").removeClass('open');
+          } else {
+
+          }
+    });
+
+
 //Just another open menu function:
   $("#menu-symb").on("click", function(e){
 

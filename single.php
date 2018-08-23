@@ -12,7 +12,7 @@ if( have_posts() ) {
      the_post();
 
       $spisbild = get_field('single_bild');
-      $resized = $spisbild['sizes'][ 'grid_thumbnail' ];
+      $resized = $spisbild['sizes'][ 'huge_thumbnail' ];
       $bildid = $spisbild['id'];
         ?>
 

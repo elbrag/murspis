@@ -24,27 +24,29 @@ if( $query->have_posts() ) {
           <div id="footer-1">
             <h2>Kontakt</h2>
 
-            <p>
-              <img class="kontakt-ikon" src="<?php the_field('ikon_telefon') ?>" alt="telefonnummer" width="30" height="30" />
-              <?php the_field('telefonnummer') ?>
-            </p>
-            <p>
-              <img class="kontakt-ikon" src="<?php the_field('ikon_email') ?>" alt="email" width="30" height="30" />
-              <?php the_field('emailadress') ?>
-            </p>
-            <p>
-              <img class="kontakt-ikon" src="<?php the_field('ikon_adress') ?>" alt="adress" width="30" height="30" />
-              <?php the_field('adress') ?>
-            </p>
+            <div class='kontakt-ikoner'>
+              <p id='tel'>
+                <img src='<?php the_field('ikon_telefon') ?>' />
+                <?php the_field('telefonnummer') ?>
+              </p>
+              <p id='email'>
+                <img src='<?php the_field('ikon_email') ?>' />
+                <?php the_field('email') ?>
+              </p>
+              <p id='adress'>
+                <img src='<?php the_field('ikon_adress') ?>' />
+                <?php the_field('adress') ?>
+              </p>
+              <p id='facebook'>
+                <a href='<?php the_field('lank_sociala_media_1') ?>'>
+                  <img src='<?php the_field('ikon_sociala_media_1') ?>' />
+                </a>
+              </p>
+            </div>
+
 
           </div>
           <div id="footer-2">
-
-            <h2>Sociala media</h2>
-            <a href="<?php the_field('lank_sociala_media_1') ?>" target="_blank" rel="noopener"><img src="<?php the_field('ikon_sociala_media_1') ?>" alt="" width="50" height="50" /></a>
-
-          </div>
-          <div id="footer-3">
 
             <h2>Länkar</h2>
 
@@ -57,7 +59,8 @@ if( $query->have_posts() ) {
               <?php the_field('rubrik_lank'); ?>
             </div>
             <a href="<?php the_field('lank'); ?>" target="_blank" rel="noopener"><?php the_field('lank'); ?></a>
-            </div>
+
+          </div>
 
           <?php } ?>
 
@@ -70,6 +73,7 @@ if( $query->have_posts() ) {
             </div>
           </footer>
           <div id='foot'>
+            <div id='foot_logo'></div>
             © Rådig Murspis <?php echo date('Y') ?>. Design av <a target="_blank" href='http://ellenbrage.com'>Ellen Brage</a>
           </div>
 
