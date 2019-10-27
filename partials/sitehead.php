@@ -54,7 +54,36 @@
                 ?>
             </div>
 
-            <?php wp_nav_menu( array('menu' => 'Menu', 'container' => '', 'items_wrap' => '<ul id="main-ul">%3$s</ul>' )); ?>
+            <?php
+            $args =
+                array(
+                    'link_before' => '', 'after' => '', 'items_wrap' => '<li>%1$s</li>'
+                );
+            $menuitems = wp_get_nav_menu_items('Huvudmeny');
+            ?>
+            <ul id='main-ul'>
+              <li class='menu-item'>
+                <a href='#om'>
+                  Om
+                </a>
+              </li>
+            <?php
+              foreach($menuitems as $item) {
+                ?>
+
+                <li class='menu-item'>
+                  <a href='<?php echo $item->url; ?>'>
+                  <?php
+                  echo $item->title;
+                  ?>
+                  </a>
+                </li>
+
+                <?php
+              }
+              ?>
+            </ul>
+
 
         </div>
 
