@@ -17,9 +17,40 @@ if( have_posts() ) {
 
        <?php
          $sliderid = get_field('slider-id');
+
+         //if no slider, let's do a video
+         $topvid = get_field('toppvideo');
+
+         //if no slider and no video, let's do a top image instead
+         $topimg = get_field('toppbild');
+
          // echo do_shortcode( '[masterslider id="'.$sliderid.'' );
-          nivo_slider( $sliderid );
-          ?>
+         if ($sliderid) {
+           nivo_slider( $sliderid );
+         }
+         elseif($topvid) { ?>
+
+           <div class='video-wrapper'>
+
+             <video autoplay muted loop id="myVideo">
+              <source src="<?php echo $topvid ?>" type="video/mp4">
+              Your browser does not support HTML5 video.
+             </video>
+           </div>
+
+           <?php
+         }
+         elseif ($topimg) {
+           $resized = $topimg['sizes'][ 'huge_thumbnail' ];
+           $bildid = $topimg['id'];
+           ?>
+           <div class='crop'>
+             <img class='single_hero' src='<?php echo $resized ?>'>
+           </div>
+
+        <?php
+         }
+        ?>
 
           <div class='textbox'>
            <h1><?php the_field('rubrik_sektion_1') ?></h1>
