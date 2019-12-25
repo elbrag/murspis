@@ -426,16 +426,55 @@ section#home_1 {
 .textbox p {
   display: block;
   margin: 0;
+  color: #cfc9c3;
+  font-size: 1.6em;
+  font-style: italic;
+  font-weight: 100;
+  margin-bottom: 10px;
+}
+.textbox h1 {
+  display: none;
+}
+.textbox img.hero-logo {
+  width: 70vw;
+  margin-bottom: 50px;
+  opacity: 0.9;
+}
+@media (min-width: 960px) {
+  .textbox img.hero-logo {
+    width: 50vw;
+  }
+}
+@media (min-width: 1200px) {
+  .textbox img.hero-logo {
+    width: 30vw;
+  }
 }
 .home_down{
-  border: solid black;
+  border: solid #cfc9c3;
   border-width: 0 2px 2px 0;
   display: inline-block;
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   cursor: pointer;
   transform: rotate(45deg);
+  position: absolute;
   -webkit-transform: rotate(45deg);
+  animation: jump 4s infinite ease-in-out;
+}
+@keyframes jump {
+  0% {
+    bottom: 0;
+  }
+  15% {
+    bottom: 5px;
+  }
+  30% {
+    bottom: 0;
+  }
+  100% {
+    bottom: 0;
+  }
 }
 
 #home_1 h1 {
@@ -554,7 +593,7 @@ section#home_2 .btn_1 {
 /*videoplayer home*/
 .video-wrapper{
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
   position: relative;
   overflow: hidden;
   margin-top: 80px;
@@ -562,6 +601,16 @@ section#home_2 .btn_1 {
 @media (min-width: 960px) {
   .video-wrapper {
     margin-top: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .video-wrapper {
+
+  }
+}
+@media (min-width: 1900px) {
+  .video-wrapper {
+    width: 100vw;
     height: 100vh;
   }
 }
@@ -570,9 +619,9 @@ video {
   position: absolute;
   top: 0;
 }
-@media (min-width: 960px) {
+@media (min-width: 1900px) {
   video {
-    width: 100%;
+    width: 100vw;
     height: auto;
   }
 }
@@ -1242,6 +1291,10 @@ section#om {
 
 .topsection {
   padding: 180px 25px 90px 25px;
+}
+
+#home_1 .textbox {
+  bottom: 22%;
 }
 
 

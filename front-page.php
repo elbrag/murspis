@@ -53,6 +53,7 @@ if( have_posts() ) {
         ?>
 
           <div class='textbox'>
+            <img class='hero-logo' src='<?php echo get_template_directory_uri() . "/img/radig-2-white.png" ?>'/>
            <h1><?php the_field('rubrik_sektion_1') ?></h1>
            <?php if (get_field('underrubrik_sektion_1')) {
 
