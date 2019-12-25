@@ -32,7 +32,7 @@ if( $query->have_posts() ) {
           if (get_locale() == 'sv_SE') {
             ?>
               <div class='btn_container'>
-                <a href='/kontakt'>
+                <a href='<?php home_url()?>/kontakt'>
                   <button class='btn_1'>Be om en offert</button>
                 </a>
               </div>

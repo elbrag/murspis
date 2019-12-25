@@ -53,7 +53,7 @@ if( have_posts() ) {
         ?>
 
           <div class='textbox'>
-            <img class='hero-logo' src='<?php echo get_template_directory_uri() . "/img/radig-2-white.png" ?>'/>
+            <img class='hero-logo' src='<?php echo get_template_directory_uri() . "/img/radig-2-white-2.png" ?>'/>
            <h1><?php the_field('rubrik_sektion_1') ?></h1>
            <?php if (get_field('underrubrik_sektion_1')) {
 
@@ -70,10 +70,10 @@ if( have_posts() ) {
      }
    ?>
 
-     <section id='home_2'>
-       <div class='margins'>
-         <h2><?php the_field('rubrik_sektion_2') ?></h2>
-       <?php
+     <!-- <section id='home_2'>
+       <div class='margins'> -->
+         <!-- <h2><?php the_field('rubrik_sektion_2') ?></h2> -->
+       <?php /*
 
 $args = array(
  'post_type' => 'galleripost',
@@ -138,6 +138,7 @@ if( $query->have_posts() ) {
 
         </div>
      </section>
+     */ ?>
 
 <?php require("partials/about.php"); ?>
 

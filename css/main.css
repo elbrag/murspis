@@ -415,7 +415,7 @@ section#home_1 {
 
 #home_1 .textbox {
   position: absolute;
-  bottom: 20%;
+  bottom: 40%;
   color: #424143;
   z-index: 10;
   text-align: center;
@@ -438,7 +438,7 @@ section#home_1 {
 .textbox img.hero-logo {
   width: 70vw;
   margin-bottom: 50px;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 @media (min-width: 960px) {
   .textbox img.hero-logo {
@@ -1068,7 +1068,7 @@ section#om {
 .om_image {
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 10px;
+  margin: 8px;
 }
 
 
@@ -1125,13 +1125,14 @@ footer .kontakt-ikoner {
 
 #foot {
   padding: 10px;
-  font-size: 0.8em;
-  color: #111;
+  font-size: 0.7em;
+  color: #636161;
   text-align: center;
+  background-color: #3a393c;
 }
 
 #foot a {
-  color: #111;
+  color: #636161;
 }
 
 #foot_logo {
@@ -1477,7 +1478,7 @@ section#om {
 /*--Sektion: Om--*/
 
 .om_image {
-  margin: 30px;
+  margin: 12px;
 }
 #om h2 {
   font-size: 4.5em;
@@ -1487,7 +1488,7 @@ section#om {
 
 
     #foot {
-      padding: 25px;
+      padding: 10px;
     }
 
 

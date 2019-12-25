@@ -60,10 +60,16 @@
                     'link_before' => '', 'after' => '', 'items_wrap' => '<li>%1$s</li>'
                 );
             $menuitems = wp_get_nav_menu_items('Huvudmeny');
+
+            if ((is_page('Hem')) || (is_page('Home'))) {
+              $omurl = '#om';
+            } else {
+              $omurl = home_url() . '#om';
+            }
             ?>
             <ul id='main-ul'>
               <li class='menu-item'>
-                <a href='#om'>
+                <a href='<?php echo $omurl ?>'>
                   Om
                 </a>
               </li>

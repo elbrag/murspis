@@ -73,8 +73,8 @@ if( $query->have_posts() ) {
             </div>
           </footer>
           <div id='foot'>
-            <div id='foot_logo'></div>
-            © Rådig Murspis <?php echo date('Y') ?>. Design av <a target="_blank" href='http://ellenbrage.com'>Ellen Brage</a>
+            <!-- <div id='foot_logo'></div> -->
+            © Rådig Murspis <?php echo date('Y') ?>. Hemsida av <a target="_blank" href='http://ellenbrage.com'>Ellen Brage</a>
           </div>
 
           <?php
