@@ -61,17 +61,22 @@
                 );
             $menuitems = wp_get_nav_menu_items('Huvudmeny');
 
-            if ((is_page('Hem')) || (is_page('Home'))) {
-              $omurl = '#om';
-            } else {
-              $omurl = home_url() . '#om';
-            }
+
             ?>
             <ul id='main-ul'>
               <li class='menu-item'>
-                <a href='<?php echo $omurl ?>'>
-                  Om
-                </a>
+                <?php
+                if ((is_page('Hem')) || (is_page('Home'))) { ?>
+                  <span id='a-om'>Om</span>
+                  <?php
+                } else { ?>
+                  <a href='<?php echo home_url() . '#om'; ?>'>
+                    Om
+                  </a>
+                <?php
+                }
+                ?>
+
               </li>
             <?php
               foreach($menuitems as $item) {

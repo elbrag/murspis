@@ -65,14 +65,17 @@ $(window).scroll(function() {
 });
 
 //clicking on the down arrow at the home page scrolls to the about section
-$('.home_down').click(function(event) {
+$('.home_down').click(smoothdown);
+$('#a-om').click(smoothdown);
 
+function smoothdown(e) {
+  e.preventDefault();
   setTimeout(function(){
     $('body, html').animate({scrollTop: $('.om_image').offset().top - 100}, 400);
   }, 100);
   return false;
 
-});
+};
 
 /////////////////Välja eldstad: gå till toppen
 

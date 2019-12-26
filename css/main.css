@@ -313,13 +313,16 @@ li.menu-item {
   clear: both;
 }
 
-li.menu-item a {
+li.menu-item a,
+li.menu-item #a-om {
   text-decoration: none;
   font-size: 20px;
   color: #fff;
   position: relative;
+  cursor: pointer;
 }
-li.menu-item.active a:before {
+li.menu-item.active a:before,
+li.menu-item.active #a-om:before  {
   content: "";
   position: absolute;
   left: 0;
@@ -1370,10 +1373,12 @@ section#om {
     will-change: border-bottom;
     transition: border-bottom 0.05s linear;
   }
-  li.menu-item a {
+  li.menu-item a,
+  li.menu-item #a-om {
     line-height: 32px;
   }
-  li.menu-item a:after {
+  li.menu-item a:after,
+  li.menu-item #a-om:after {
     content: '';
     position: absolute;
     left: 0;
@@ -1388,7 +1393,8 @@ section#om {
   	-webkit-transform: scale(0,1);
   	transform: scale(0,1);
   }
-  li.menu-item a:hover:after {
+  li.menu-item a:hover:after,
+  li.menu-item #a-om:hover:after {
     opacity: 1;
   	-webkit-transform: scale(1);
   	transform: scale(1);
