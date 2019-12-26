@@ -140,6 +140,15 @@ if( $query->have_posts() ) {
      </section>
      */ ?>
 
+     <section id='home_3'>
+       <div class='margins'>
+
+         <h2><?php the_field('rubrik_sektion_3'); ?></h2>
+         <?php the_field('text_sektion_3'); ?>
+
+       </div>
+     </section>
+
 <?php require("partials/about.php"); ?>
 
 <?php get_footer(); ?>

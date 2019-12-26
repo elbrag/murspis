@@ -89,16 +89,15 @@ if( $query->have_posts() ) {
 
               <div class="link-desc">
                 <img src="<?php echo $linkikon ?>" width="18" height="24" />
-                <?php the_field($rubrik); ?>
+                <a href="<?php the_field($lank); ?>" target="_blank" rel="noopener"><?php the_field($rubrik); ?></a>
               </div>
-              <a href="<?php the_field($lank); ?>" target="_blank" rel="noopener"><?php the_field($lank); ?></a>
+              <br  />
 
-            </div>
 
-          <?php }
-            }?>
-
-                <?php
+            <?php } ?>
+          <?php }?>
+          </div>
+          <?php
             }
           }
         } ?>

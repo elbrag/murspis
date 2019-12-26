@@ -21,18 +21,29 @@ if( have_posts() ) {
        <p><?php the_field('introtext_kontakt') ?></p>
 
        <div class='kontakt-ikoner'>
-         <p id='tel'>
-           <img src='<?php the_field('telefonikon') ?>' />
-           <?php the_field('telefonnummer') ?>
-         </p>
-         <p id='email'>
-           <img src='<?php the_field('emailikon') ?>' />
-           <?php the_field('email') ?>
-         </p>
-         <p id='adress'>
-           <img src='<?php the_field('adressikon') ?>' />
-           <?php the_field('adress') ?>
-         </p>
+         <?php
+           if (get_field('telefonnummer')) {?>
+             <p id='tel'>
+               <img src='<?php the_field('telefonikon') ?>' />
+               <?php the_field('telefonnummer') ?>
+             </p>
+           <?php } ?>
+
+           <?php
+             if (get_field('email')) {?>
+             <p id='email'>
+               <img src='<?php the_field('emailikon') ?>' />
+               <?php the_field('email') ?>
+             </p>
+           <?php } ?>
+
+           <?php
+             if (get_field('adress')) {?>
+             <p id='adress'>
+               <img src='<?php the_field('adressikon') ?>' />
+               <?php the_field('adress') ?>
+             </p>
+           <?php } ?>
        </div>
       </div>
      </section>

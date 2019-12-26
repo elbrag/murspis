@@ -80,10 +80,17 @@
               </li>
             <?php
               foreach($menuitems as $item) {
-                ?>
 
+
+                ?>
                 <li class='menu-item'>
-                  <a href='<?php echo $item->url; ?>'>
+                  <a
+                  <?php
+                  if (is_page($item->title)) {
+                    echo "class='active'";
+                  }
+                   ?>
+                  href='<?php echo $item->url; ?>'>
                   <?php
                   echo $item->title;
                   ?>

@@ -30,7 +30,9 @@ p, h1, h2, h3, h4 {
 }
 
 h1, h2, h3, h4 {
-
+  font-family: 'Trirong';
+  font-weight: 500;
+  text-align: left;
 }
 
 p, li {
@@ -39,20 +41,20 @@ p, li {
 }
 
 h1 {
-  font-size: 2.2em;
+  font-size: 2.6em;
   margin: 30px 0;
-  text-transform: lowercase;
-  font-variant: small-caps;
 }
 .margins h1 {
-  margin-top: 10px;
-  border-bottom: 1px solid #b8b5b5;
+  margin-top: 70px;
 }
 h2 {
   font-size: 2em;
   margin: 25px 0;
-  text-transform: lowercase;
-  font-variant: small-caps;
+}
+@media (min-width: 960px) {
+  h2 {
+    font-size: 2.5em;
+  }
 }
 h3 {
   font-size: 1.6em;
@@ -73,7 +75,6 @@ a {
 }
 
 a:visited {
-  color: #a06b58;
 }
 
 /*Buttons*/
@@ -340,6 +341,7 @@ li.menu-item.active #a-om:before  {
 }
 .lang-items a {
   text-decoration: none;
+  height: 22px;
 }
 button.lang-item {
   background-repeat: no-repeat;
@@ -386,17 +388,14 @@ section#om {
   padding: 95px 25px;
 }
 
-footer{
-  padding: 30px 25px 60px 25px;
-}
-
 section#single_1,
 section#murspisar_2,
 section#kontakt_2 {
   padding: 0px 25px 60px 25px;
 }
 
-section#home_2 {
+section#home_2,
+section#home_3 {
   padding: 45px 25px 60px 25px;
 }
 section#valjaeldstad_1 {
@@ -430,9 +429,10 @@ section#home_1 {
   display: block;
   margin: 0;
   color: #cfc9c3;
+  font-family: 'Trirong';
   font-size: 1.6em;
   font-style: italic;
-  font-weight: 100;
+  font-weight: 200;
   margin-bottom: 10px;
 }
 .textbox h1 {
@@ -455,7 +455,7 @@ section#home_1 {
 }
 .home_down{
   border: solid #cfc9c3;
-  border-width: 0 2px 2px 0;
+  border-width: 0 1px 1px 0;
   display: inline-block;
   height: 20px;
   width: 20px;
@@ -987,6 +987,7 @@ section#kontakt_1 {
 
 }
 #kontakt_1 .kontakt-ikoner {
+  color: #424143;
   display: flex;
   justify-content: space-between;
   margin-top: 45px;
@@ -995,6 +996,13 @@ section#kontakt_1 {
   max-width: 600px;
   margin: 45px auto 0 auto;
 }
+#kontakt_1 #tel,
+#kontakt_1 #email,
+#kontakt_1 #adress,
+#kontakt_1 #facebook {
+  color: #424143;
+}
+
 #tel,
 #email,
 #adress,
@@ -1003,7 +1011,6 @@ section#kontakt_1 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 0.8em;
   padding: 0 30px;
   color: #fff;
 }
@@ -1022,12 +1029,13 @@ section#kontakt_1 {
   display: block;
   margin-right: 10px;
 }
-.kontakt-ikoner a {
-  color: #fff;
-}
+
 
 section#kontakt_2 {
   box-shadow: none;
+}
+#kontakt_2 h2 {
+  margin-bottom: 40px;
 }
 
 /*form*/
@@ -1056,7 +1064,12 @@ section#om {
 #om h2 {
   color: #fff;
   text-align: center;
-  font-family: 'Times new roman';
+  font-size: 2.3em;
+}
+@media (min-width: 960px) {
+  #om h2 {
+    font-size: 2.7em;
+  }
 }
 
 #om p {
@@ -1092,27 +1105,35 @@ section#om {
 
 footer {
   background-color: #424143;
-  color: #fff;
   box-shadow: 0px -2px 30px rgba(0,0,0,0.3);
-}
-
-footer a {
-  color: #fff;
+  margin-top: 80px;
+  padding: 30px 25px 60px 25px;
 }
 
 
 footer h2 {
-  color: #fff;
-  font-size: 2.5em;
+  font-weight: 300;
   text-align: center;
   margin: 20px 0;
-  font-weight: 200;
-  border-bottom: 1px solid #777;
+  font-size: 1.6em;
+}
+@media (min-width: 960px) {
+  footer h2 {
+    font-size: 2em;
+  }
+}
+footer a,
+footer p,
+footer h2 {
+  color: #cfc9c3;
 }
 
 #footer-1,
 #footer-2 {
-  margin-bottom: 45px;
+  margin-bottom: 100px;
+}
+#footer-2 {
+  text-align: center;
 }
 
 /* #footer-1 p {
@@ -1124,19 +1145,26 @@ footer h2 {
 footer .kontakt-ikoner {
   display: flex;
   justify-content: center;
-  margin-top: 45px;
   overflow-wrap: break-word;
   word-wrap: break-word;
   max-width: 600px;
-  margin: 45px auto 0 auto;
+  margin: 20px auto 0 auto;
 }
 
 .link-desc {
-  display: flex;
-  align-items: center;
+  display: inline;
+  position: relative;
+  text-align: center;
 }
 .link-desc img {
-  margin-right: 10px;
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+.link-desc a {
+  padding-left: 23px;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
 #foot {
@@ -1178,10 +1206,6 @@ footer .kontakt-ikoner {
 @media (min-width: 640px) {
 
   /*--Basics and general--*/
-
-h1 {
-  font-size: 2.2em;
-}
 
 
   /*Buttons*/
@@ -1286,7 +1310,7 @@ h1 {
   }
 
   h1 {
-    font-size: 2.4em;
+    font-size: 3em;
   }
 
   /*buttons*/
@@ -1302,7 +1326,8 @@ h1 {
 /*Sektioner*/
 
 section#home_2,
-section#om {
+section#om,
+section#home_3 {
   padding: 120px 25px 150px 25px;
 }
 
@@ -1386,11 +1411,12 @@ section#om {
     will-change: border-bottom;
     transition: border-bottom 0.05s linear;
   }
+
   li.menu-item a,
   li.menu-item #a-om {
     line-height: 32px;
   }
-  li.menu-item a:after,
+  li.menu-item a:not(.active):after,
   li.menu-item #a-om:after {
     content: '';
     position: absolute;
@@ -1405,6 +1431,16 @@ section#om {
   	transition: opacity 0.35s, transform 0.35s;
   	-webkit-transform: scale(0,1);
   	transform: scale(0,1);
+  }
+  li.menu-item a.active:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    height: 1em;
+    width: 100%;
+    border-bottom: 2px solid #C65228;
+    margin-top: 10px;
   }
   li.menu-item a:hover:after,
   li.menu-item #a-om:hover:after {
