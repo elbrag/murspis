@@ -999,18 +999,31 @@ section#kontakt_1 {
 #email,
 #adress,
 #facebook {
-  width: 30%;
   margin: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   font-size: 0.8em;
+  padding: 0 30px;
+  color: #fff;
+}
+@media (min-width: 960px) {
+  #tel,
+  #email,
+  #adress,
+  #facebook {
+    width: 30%;
+  }
 }
 
+
 .kontakt-ikoner img {
-  width: 65px;
+  width: 50px;
   display: block;
-  margin-bottom: 5px;
+  margin-right: 10px;
+}
+.kontakt-ikoner a {
+  color: #fff;
 }
 
 section#kontakt_2 {
@@ -1110,7 +1123,7 @@ footer h2 {
 
 footer .kontakt-ikoner {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 45px;
   overflow-wrap: break-word;
   word-wrap: break-word;
