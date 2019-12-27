@@ -24,54 +24,50 @@ if( $query->have_posts() ) {
 
           <div class='margins'>
 
-          <h2><?php the_field('rubrik_om') ?></h2>
-          <?php the_field('text_om') ?>
-
-
+          <h2><?php the_field('rubrik_om'); ?></h2>
+          <?php the_field('text_om'); ?>
+          <h3><?php the_field('karnvarde_rubrik'); ?></h3>
           <?php
-          if (get_locale() == 'sv_SE') {
-            ?>
-              <div class='btn_container'>
-                <a href='<?php home_url()?>/kontakt'>
-                  <button class='btn_1'>Be om en offert</button>
-                </a>
-              </div>
+          foreach(range(1,3) as $i) {
 
-            <?php
-          } else {
-            ?>
-              <div class='btn_container'>
-                <a href='/contact'>
-                  <button class='btn_1'>Ask for a price suggestion</button>
-                </a>
+            if(get_field('karnvarde_' . $i)) {
+              ?>
+              <div class='karnvarde'>
+                <img src='<?php the_field('varde_ikon_' . $i); ?>'>
+                <?php
+                the_field('karnvarde_' . $i);
+                ?>
               </div>
-
-            <?php
+              <?php
+            }
           }
           ?>
+          <div class='cta'>
+            <?php the_field('cta-text'); ?>
+            <?php
+            if (get_locale() == 'sv_SE') {
+              ?>
+
+                  <a href='<?php home_url()?>/kontakt'>
+                    <button class='btn_1'>Ta kontakt</button>
+                  </a>
+
+              <?php
+            } else {
+              ?>
+                  <a href='<?php home_url()?>/contact'>
+                    <button class='btn_1'>Contact</button>
+                  </a>
+
+              <?php
+            }
+            ?>
+          </div>
+
 
           <div class="om-ikoner">
 
-              <?php
-              $ikon1 = get_field('om_ikon_1');
-              $ikon2 = get_field('om_ikon_2');
-              $ikon3 = get_field('om_ikon_3');
-              ?>
 
-              <p>
-                <img src='<?php echo $ikon1 ?>'>
-                <?php the_field('ikon-text_1') ?>
-              </p>
-
-              <p>
-                <img src='<?php echo $ikon2 ?>'>
-                <?php the_field('ikon-text_2') ?>
-              </p>
-
-              <p>
-                <img src='<?php echo $ikon3 ?>'>
-                <?php the_field('ikon-text_3') ?>
-              </p>
 
           </div>
 

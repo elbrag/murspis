@@ -222,3 +222,10 @@ if(numberOfWords > wordLimit) {
 }
 
 });
+
+$(window).on('load', function() {
+      // {$('video').hide().fadeIn("slow", function(){
+      //   // $(this).css('opacity','1');
+      // });}
+      $('video').addClass('fadein');
+});
