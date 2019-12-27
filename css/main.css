@@ -49,6 +49,7 @@ h1 {
 }
 h2 {
   font-size: 2em;
+  line-height: 1.4em;
   margin: 25px 0;
 }
 @media (min-width: 960px) {
@@ -73,7 +74,15 @@ a {
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
-
+section a,
+section a p {
+  color: #424143;
+}
+section a:hover,
+section a:hover p,
+section a p:hover {
+  color: #706f72!important;
+}
 a:visited {
 }
 
@@ -103,7 +112,9 @@ input[type='submit'] {
   font-size: 1.2em;
   color: #fff;
 }
-
+input[type='submit']:hover {
+  background-color: #d65e32;
+}
 .btn_1 {
   width: 100%;
   background-color: #fff;
@@ -391,7 +402,7 @@ section#om {
 section#single_1,
 section#murspisar_2,
 section#kontakt_2 {
-  padding: 0px 25px 60px 25px;
+  padding: 0px 25px 100px 25px;
 }
 
 section#home_2,
@@ -993,7 +1004,6 @@ section#kontakt_1 {
   margin-top: 45px;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  max-width: 600px;
   margin: 45px auto 0 auto;
 }
 #kontakt_1 #tel,
@@ -1001,6 +1011,8 @@ section#kontakt_1 {
 #kontakt_1 #adress,
 #kontakt_1 #facebook {
   color: #424143;
+  padding-left: 0;
+  padding-right: 60px;
 }
 
 #tel,
@@ -1012,7 +1024,6 @@ section#kontakt_1 {
   flex-direction: row;
   align-items: center;
   padding: 0 30px;
-  color: #fff;
 }
 @media (min-width: 960px) {
   #tel,
@@ -1041,17 +1052,33 @@ section#kontakt_2 {
 /*form*/
 
 .wpcf7 {
-  max-width: 700px;
+  max-width: 950px;
   margin: 0 auto!important;
+}
+.wpcf7 .btn_container {
+  text-align: left;
 }
 .wpcf7 input,
 .wpcf7 textarea {
   padding: 10px 15px;
   font-size: 1em;
-  width: 90%;
+  width: 99%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+@media (min-width: 960px) {
+  .wpcf7 input,
+  .wpcf7 textarea {
+    width: 100%;
+  }
 }
 .wpcf7 input[type='submit'] {
   width: 100%;
+}
+.wpcf7 input,
+.wpcf7 textarea,
+.wpcf7 input[type='submit'] {
+  max-width: 600px;
 }
 
 /*--Sektion: Om--*/
@@ -1074,7 +1101,6 @@ section#om {
 
 #om p {
   color: #fff;
-  display: inline;
   font-weight: 300;
 }
 
@@ -1124,8 +1150,15 @@ footer h2 {
 }
 footer a,
 footer p,
+footer a p,
 footer h2 {
   color: #cfc9c3;
+}
+
+footer a:hover,
+footer a p:hover,
+footer a:hover p {
+  color: #f1ebe5!important;
 }
 
 #footer-1,
@@ -1432,10 +1465,12 @@ section#home_3 {
   	-webkit-transform: scale(0,1);
   	transform: scale(0,1);
   }
-  li.menu-item a.active:after {
+  li.menu-item a.active:after,
+  li.menu-item a:active:after {
     content: '';
     position: absolute;
     left: 0;
+    opacity: 1;
     display: inline-block;
     height: 1em;
     width: 100%;

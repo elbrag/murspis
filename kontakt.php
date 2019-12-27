@@ -31,10 +31,12 @@ if( have_posts() ) {
 
            <?php
              if (get_field('email')) {?>
-             <p id='email'>
-               <img src='<?php the_field('emailikon') ?>' />
-               <?php the_field('email') ?>
-             </p>
+               <a href='mailto:<?php the_field('email') ?>'>
+                 <p id='email'>
+                   <img src='<?php the_field('emailikon') ?>' />
+                 <?php the_field('email') ?>
+                </p>
+             </a>
            <?php } ?>
 
            <?php

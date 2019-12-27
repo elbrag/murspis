@@ -39,10 +39,12 @@ if( $query->have_posts() ) {
               <?php
               if (get_field('emailadress')) {
                 ?>
-                <p id='email'>
-                  <img src='<?php the_field('ikon_email') ?>' />
-                  <a href='mailto:<?php the_field('emailadress') ?>'><?php the_field('emailadress') ?></a>
-                </p>
+                <a href='mailto:<?php the_field('emailadress') ?>'>
+                  <p id='email'>
+                    <img src='<?php the_field('ikon_email') ?>' />
+                    <?php the_field('emailadress') ?>
+                  </p>
+                </a>
               <?php
               }
               ?>
@@ -61,11 +63,11 @@ if( $query->have_posts() ) {
               <?php
               if (get_field('lank_sociala_media_1')) {
               ?>
+              <a href='<?php the_field('lank_sociala_media_1') ?>'>
                 <p id='facebook'>
-                  <a href='<?php the_field('lank_sociala_media_1') ?>'>
                     <img src='<?php the_field('ikon_sociala_media_1') ?>' />
-                  </a>
                 </p>
+              </a>
               <?php
               }
               ?>

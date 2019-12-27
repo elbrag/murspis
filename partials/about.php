@@ -25,7 +25,7 @@ if( $query->have_posts() ) {
           <div class='margins'>
 
           <h2><?php the_field('rubrik_om') ?></h2>
-          <p><?php the_field('text_om') ?></p>
+          <?php the_field('text_om') ?>
 
 
           <?php
