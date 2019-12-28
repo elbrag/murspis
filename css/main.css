@@ -1130,19 +1130,34 @@ section#om {
 #om .karnvarde {
   display: flex;
   flex-direction: column;
+  margin-bottom: 30px;
+}
+.karnvarde img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 5px;
+  display: block;
 }
 @media (min-width: 640px) {
   #om .karnvarde {
     flex-direction: row;
+    margin-bottom: 10px;
+  }
+  .karnvarde img {
+    width: 60px;
+    height: 60px;
+    margin-right: 12px;
+    align-self: center;
   }
 }
-.karnvarde img {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  align-self: center;
+
+.karnvarde h4 {
+  color: #fff;
+  margin: 0;
 }
 .karnvarde p {
+  margin-top: 0;
+  line-height: 1.4em;
 }
 .om_image {
   background-repeat: no-repeat;

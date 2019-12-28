@@ -22,7 +22,17 @@ if( $query->have_posts() ) {
       ?>
 
           <div id="footer-1">
-            <h2>Kontakt</h2>
+            <?php
+            if (get_locale() == 'sv_SE') {
+              ?>
+              <h2>Kontakt</h2>
+              <?php
+            } elseif(get_locale() == 'en_GB') {
+              ?>
+              <h2>Contact</h2>
+              <?php
+            }
+            ?>
 
             <div class='kontakt-ikoner'>
               <?php
@@ -77,7 +87,17 @@ if( $query->have_posts() ) {
           </div>
           <div id="footer-2">
 
-            <h2>Länkar</h2>
+            <?php
+            if (get_locale() == 'sv_SE') {
+              ?>
+              <h2>Länkar</h2>
+              <?php
+            } elseif(get_locale() == 'en_GB') {
+              ?>
+              <h2>Links</h2>
+              <?php
+            }
+            ?>
 
             <?php $linkikon = get_template_directory_uri() . "/img/link.png";
 

@@ -59,7 +59,14 @@
                 array(
                     'link_before' => '', 'after' => '', 'items_wrap' => '<li>%1$s</li>'
                 );
-            $menuitems = wp_get_nav_menu_items('Huvudmeny');
+
+            if (get_locale() == 'sv_SE') {
+              $menuitems = wp_get_nav_menu_items('Huvudmeny');
+              $omlabel = 'Om';
+            } elseif(get_locale() == 'en_GB') {
+              $menuitems = wp_get_nav_menu_items('Main menu');
+              $omlabel = 'About';
+            }
 
 
             ?>
@@ -67,11 +74,11 @@
               <li class='menu-item'>
                 <?php
                 if ((is_page('Hem')) || (is_page('Home'))) { ?>
-                  <span id='a-om'>Om</span>
+                  <span id='a-om'><?php echo $omlabel ?></span>
                   <?php
                 } else { ?>
                   <a href='<?php echo home_url() . '#om'; ?>'>
-                    Om
+                    <?php echo $omlabel ?>
                   </a>
                 <?php
                 }

@@ -34,9 +34,11 @@ if( $query->have_posts() ) {
               ?>
               <div class='karnvarde'>
                 <img src='<?php the_field('varde_ikon_' . $i); ?>'>
+                <span>
                 <?php
                 the_field('karnvarde_' . $i);
                 ?>
+                </span>
               </div>
               <?php
             }
