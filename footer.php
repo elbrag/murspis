@@ -128,8 +128,19 @@ if( $query->have_posts() ) {
             </div>
           </footer>
           <div id='foot'>
-            <!-- <div id='foot_logo'></div> -->
-            © Rådig Murspis <?php echo date('Y') ?>. Hemsida av <a target="_blank" href='http://ellenbrage.com'>Ellen Brage</a>
+            © Rådig Murspis <?php echo date('Y') ?>.
+            <?php
+            if (get_locale() == 'sv_SE') {
+              ?>
+              Hemsida av <a target="_blank" href='http://ellenbrage.com'>Ellen Brage</a>
+              <?php
+            } elseif(get_locale() == 'en_GB') {
+              ?>
+            Website by <a target="_blank" href='http://ellenbrage.com'>Ellen Brage</a>
+              <?php
+            }
+            ?>
+
           </div>
 
           <?php

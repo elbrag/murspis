@@ -94,6 +94,22 @@ input[type='submit'] {
   cursor: pointer;
   border-radius: 2px;
 }
+.cookie-btn {
+  background-color: #C65228;
+  text-decoration: none;
+    padding: 3px 20px;
+    border-radius: 2px;
+  border: none;
+  margin-top: 10px;
+}
+.cookie-btn,
+.cookie-btn:visited,
+.cookie-btn:active {
+  color: #fff;
+}
+.cookie-notice-container #cn-notice-text {
+  margin-bottom: 10px;
+}
 
 button:focus,
 input[type='submit']:focus {
@@ -465,7 +481,7 @@ section#home_1 {
 }
 .textbox img.hero-logo {
   width: 70vw;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   opacity: 0.8;
 }
 @media (min-width: 960px) {
@@ -1128,8 +1144,6 @@ section#om {
 }
 
 #om .karnvarde {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 30px;
 }
 .karnvarde img {
@@ -1140,14 +1154,32 @@ section#om {
 }
 @media (min-width: 640px) {
   #om .karnvarde {
-    flex-direction: row;
     margin-bottom: 10px;
+    overflow: hidden;
   }
   .karnvarde img {
     width: 60px;
     height: 60px;
     margin-right: 12px;
-    align-self: center;
+    float: left;
+  }
+
+  .karnvarde#n1 img {
+    margin-top: 18px;
+  }
+  .karnvarde#n2 img {
+    margin-top: 12px;
+  }
+  .karnvarde#n3 img {
+    margin-top: 10px;
+  }
+  .karnvarde span {
+    float: left;
+    width: calc(100% - 72px);
+  }
+  .karnvarde span p,
+  .karnvarde span h4 {
+    width: calc(100% - 72px);
   }
 }
 
@@ -1162,7 +1194,13 @@ section#om {
 .om_image {
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: 50%;
   margin: 8px;
+}
+@media (min-width: 960px) {
+  .om_image {
+    background-size: cover;
+  }
 }
 .cta {
   overflow: hidden;
@@ -1283,7 +1321,7 @@ footer .kontakt-ikoner {
 
 
   #home_1 .textbox {
-    bottom: 35%;
+    bottom: 25%;
   }
 
 
@@ -1424,9 +1462,11 @@ section#home_3 {
 }
 
 #home_1 .textbox {
-  bottom: 22%;
+  bottom: 15%;
 }
-
+.textbox img.hero-logo {
+  margin-bottom: 15vh;
+}
 
   /*--Header and navigation--*/
 
@@ -1605,7 +1645,7 @@ section#home_3 {
 
   .wpcf7 input,
   .wpcf7 textarea {
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 
 /*--Sektion: Om--*/
@@ -1637,7 +1677,9 @@ section#home_3 {
   /*--Basics and general--*/
 
 
-
+  #home_1 .textbox {
+    bottom: 12%;
+  }
 
 
   /*--Header and navigation--*/

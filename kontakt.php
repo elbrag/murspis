@@ -55,7 +55,8 @@ if( have_posts() ) {
        <h2><?php the_field('rubrik_formular') ?></h2>
        <?php
 
-       if (get_locale() == 'sv_SE') {
+       if (get_locale() == 'sv_SE') { ?>
+         <?php
           echo do_shortcode( '[contact-form-7 id="4" title="Kontaktformulär sve"]' );
       } elseif (get_locale() == 'en_GB') {
            echo do_shortcode( '[contact-form-7 id="126" title="Kontaktformulär eng"]' );

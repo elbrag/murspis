@@ -32,7 +32,7 @@ if( $query->have_posts() ) {
 
             if(get_field('karnvarde_' . $i)) {
               ?>
-              <div class='karnvarde'>
+              <div class='karnvarde' id='<?php echo "n" . $i ?>'>
                 <img src='<?php the_field('varde_ikon_' . $i); ?>'>
                 <span>
                 <?php
