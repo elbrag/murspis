@@ -7,7 +7,7 @@ Grey: #424143
 /*--Basics and general--*/
 
 * {
-  font-family: 'Nunito Sans';
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 body {
@@ -426,7 +426,7 @@ section {
 }
 
 section#om {
-  padding: 95px 25px;
+  padding: 65px 25px;
 }
 
 section#single_1,
@@ -458,7 +458,7 @@ section#home_1 {
 
 #home_1 .textbox {
   position: absolute;
-  bottom: 40%;
+  bottom: 27%;
   color: #424143;
   z-index: 10;
   text-align: center;
@@ -471,10 +471,15 @@ section#home_1 {
   margin: 0;
   color: #cfc9c3;
   font-family: 'Trirong';
-  font-size: 1.6em;
+  font-size: 1.3em;
   font-style: italic;
   font-weight: 200;
   margin-bottom: 10px;
+}
+@media (min-width: 640px) {
+  .textbox p {
+    font-size: 1.6em;
+  }
 }
 .textbox h1 {
   display: none;
@@ -482,7 +487,7 @@ section#home_1 {
 .textbox img.hero-logo {
   width: 70vw;
   margin-bottom: 100px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 @media (min-width: 960px) {
   .textbox img.hero-logo {
@@ -493,6 +498,11 @@ section#home_1 {
   .textbox img.hero-logo {
     width: 30vw;
   }
+}
+.tagline {
+  position: relative;
+  padding-bottom: 25px;
+  cursor: pointer;
 }
 .home_down{
   border: solid #cfc9c3;
@@ -508,16 +518,16 @@ section#home_1 {
 }
 @keyframes jump {
   0% {
-    bottom: 0;
-  }
-  15% {
     bottom: 5px;
   }
+  15% {
+    bottom: 10px;
+  }
   30% {
-    bottom: 0;
+    bottom: 5px;
   }
   100% {
-    bottom: 0;
+    bottom: 5px;
   }
 }
 
@@ -1126,12 +1136,7 @@ section#om {
 
 #om h2 {
   color: #fff;
-  font-size: 2.3em;
-}
-@media (min-width: 960px) {
-  #om h2 {
-    font-size: 2.7em;
-  }
+  font-size: 2.7em;
 }
 
 #om p {
@@ -1144,7 +1149,7 @@ section#om {
 }
 
 #om .karnvarde {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 .karnvarde img {
   width: 70px;

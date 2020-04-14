@@ -65,13 +65,16 @@ $(window).scroll(function() {
 });
 
 //clicking on the down arrow at the home page scrolls to the about section
-$('.home_down').click(smoothdown);
+$('.tagline').click(smoothdown);
 $('#a-om').click(smoothdown);
 
 function smoothdown(e) {
   e.preventDefault();
   setTimeout(function(){
     $('body, html').animate({scrollTop: $('.om_image').offset().top - 100}, 400);
+    $("#menu-symb").removeClass('open');
+    $('header').removeClass("menu-open");
+    $('#menu-items').removeClass("menu-open");
   }, 100);
   return false;
 
